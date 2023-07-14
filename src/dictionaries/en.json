@@ -1,0 +1,16 @@
+{
+  "pageNames": {
+    "crewProfile": "Crew Profile",
+    "crewCalendar": "Availability Calendar",
+    "producerProfile": "Producer Profile",
+    "producerSearch": "Crew Search"
+  },
+  "header": {
+    "register": "Register",
+    "login": "Login",
+    "logout": "Logout",
+    "calendar": "Calendar",
+    "profile": "Profile",
+    "search": "Search"
+  }
+}

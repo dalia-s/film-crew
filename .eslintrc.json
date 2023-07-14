@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    // "prettier/prettier": ["error"],
+    "@typescript-eslint/semi": ["error", "never"],
+    "react/react-in-jsx-scope": "off",
+    "react/no-array-index-key": "off" // I'll do my best to avoid it :)
+  },
+  "plugins": ["prettier"],
+  "globals": {
+    "React": "writable"
+  }
 }

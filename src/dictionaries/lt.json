@@ -1,0 +1,16 @@
+{
+  "pageNames": {
+    "crewProfile": "Profilis",
+    "crewCalendar": "Kalendorius",
+    "producerProfile": "Prodiuserio Profilis",
+    "producerSearch": "Ieškoti Komandos Nario"
+  },
+  "header": {
+    "register": "Registruotis",
+    "login": "Prisijungti",
+    "logout": "Atsijungti",
+    "calendar": "Kalendorius",
+    "profile": "Profilis",
+    "search": "Ieškoti"
+  }
+}
