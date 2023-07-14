@@ -18,8 +18,6 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
-// test commit
-
 export default function RootLayout({ params, children }: LayoutProps) {
   return (
     <html lang={params.lang} className={roboto.className}>
