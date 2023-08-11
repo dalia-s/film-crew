@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { Params } from '../../../../interfaces/to-be-renamed'
-import getDictionary from '../../../../dictionaries/dictionaries'
+import { Params } from '@/types/pageTypes'
+import getDictionary from '@/dictionaries/dictionaries'
 
 export default async function ProducerSearchPage({ params }: Params) {
   const dict = await getDictionary(params.lang)

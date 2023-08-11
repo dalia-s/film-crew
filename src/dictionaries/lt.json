@@ -12,5 +12,9 @@
     "calendar": "Kalendorius",
     "profile": "Profilis",
     "search": "Ieškoti"
+  },
+  "landingPage": {
+    "title": "Sveiki atvykę į FilmCrew portalą!",
+    "description": ""
   }
 }

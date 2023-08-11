@@ -12,5 +12,9 @@
     "calendar": "Calendar",
     "profile": "Profile",
     "search": "Search"
+  },
+  "landingPage": {
+    "title": "Welcome to FilmCrew!",
+    "description": "This needs a lot more text to explain what this is and what to expect from functionality"
   }
 }

@@ -1,4 +1,4 @@
-import { LayoutProps } from '@/interfaces/to-be-renamed'
+import { LayoutProps } from 'types/pageTypes'
 import { i18n } from '@/utils/i18n-config'
 import { ProducerHeader } from '@/components/header'
 

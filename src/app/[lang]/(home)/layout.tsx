@@ -1,5 +1,5 @@
 import { HomeHeader } from '@/components/header'
-import { LayoutProps } from '@/interfaces/to-be-renamed'
+import { LayoutProps } from '@/types/pageTypes'
 import { i18n } from '@/utils/i18n-config'
 
 export async function generateStaticParams() {

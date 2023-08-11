@@ -22,10 +22,10 @@
     "baseUrl": "src/",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/interfaces/*": ["interfaces/*"],
+      "@/types/*": ["types/*"],
       "@/dictionaries/*": ["dictionaries/*"],
       "@/utils/*": ["utils/*"],
-      // "@/styles/*": ["styles/*"], need to resolve stuff with eslinter
+      "@/styles/*": ["styles/*"],
       "@/public/*": ["../../public/*"]
     }
   },

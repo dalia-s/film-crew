@@ -1,6 +1,6 @@
 import Link from 'next/link'
-// import { Params } from '../../_interfaces/to-be-renamed'
-// import getDictionary from '../../_dictionaries/dictionaries'
+// import { Params } from '@/interfaces/to-be-renamed'
+// import getDictionary from '@/dictionaries/dictionaries'
 
 export default async function CrewProfilePage() {
   // const dict = await getDictionary(params.lang)

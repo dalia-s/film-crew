@@ -6,7 +6,7 @@
   "rules": {
     // "prettier/prettier": ["error"],
     "@typescript-eslint/semi": ["error", "never"],
-    "import/extensions": ["error", "never", { "ignorePackages": true }],
+    "import/extensions": ["error", "always", { "tsx": "never" }, { "ignorePackages": true }],
     "react/react-in-jsx-scope": "off",
     "react/no-array-index-key": "off" // I'll do my best to avoid it :)
   },

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import logo from '../../public/logo.png'
-import smiley from '../../public/smiley.jpg'
+import logo from '@/public/logo.png'
+import smiley from '@/public/smiley.jpg'
 import LanguageToggle from './languageToggle'
 import { Locale } from '@/utils/i18n-config'
 import getDictionary from '@/dictionaries/dictionaries'
@@ -35,8 +35,8 @@ export async function HomeHeader(props: HeaderProps) {
 
   return (
     <Header lang={props.lang}>
-      <Link href={`/${props.lang}/crew/profile`}>{dict.header.login}</Link>
-      <Link href={`/${props.lang}/producer/profile`}>{dict.header.register}</Link>
+      <Link href={`/${props.lang}/?login=true`}>{dict.header.login}</Link>
+      <Link href={`/${props.lang}/?register=true`}>{dict.header.register}</Link>
     </Header>
   )
 }

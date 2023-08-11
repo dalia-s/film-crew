@@ -1,7 +1,7 @@
-import '../styles/normalize.css'
-import '../styles/global.scss'
+import '@/styles/normalize.css'
+import '@/styles/global.scss'
 import { Roboto } from 'next/font/google'
-import { LayoutProps } from '@/interfaces/to-be-renamed'
+import { LayoutProps } from '@/types/pageTypes'
 import { i18n } from '@/utils/i18n-config'
 
 const roboto = Roboto({
