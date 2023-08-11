@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import logo from '@/public/logo.png'
-import smiley from '@/public/smiley.jpg'
+import logo from '../../public/logo.png'
+import smiley from '../../public/smiley.jpg'
 import LanguageToggle from './languageToggle'
-import { Locale } from '../utils/i18n-config'
-import getDictionary from '../dictionaries/dictionaries'
+import { Locale } from '@/utils/i18n-config'
+import getDictionary from '@/dictionaries/dictionaries'
 
 interface HeaderProps {
   children?: React.ReactNode

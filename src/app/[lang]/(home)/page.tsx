@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import getDictionary from '../../../dictionaries/dictionaries'
-import { Params } from '../../../interfaces/to-be-renamed'
+import getDictionary from '@/dictionaries/dictionaries'
+import { Params } from '@/interfaces/to-be-renamed'
 
 export default async function Home({ params }: Params) {
   const dict = await getDictionary(params.lang)

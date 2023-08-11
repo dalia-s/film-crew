@@ -1,8 +1,8 @@
 import '../styles/normalize.css'
 import '../styles/global.scss'
 import { Roboto } from 'next/font/google'
-import { LayoutProps } from '../interfaces/to-be-renamed'
-import { i18n } from '../utils/i18n-config'
+import { LayoutProps } from '@/interfaces/to-be-renamed'
+import { i18n } from '@/utils/i18n-config'
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
