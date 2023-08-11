@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import getDictionary from '@/dictionaries/dictionaries'
 import { Params } from '@/types/pageTypes'
+import ModalForm from './(login)/form'
 
 type HomeProps = Params & {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -9,8 +10,8 @@ type HomeProps = Params & {
 export default async function Home({ params, searchParams }: HomeProps) {
   const dict = await getDictionary(params.lang)
   console.log(searchParams)
-  // const showLogin = searchParams && searchParams.login
-  // const showRegister = searchParams?.register
+  const showLogin = searchParams?.login
+  const showRegister = searchParams?.register
 
   return (
     <>
@@ -19,12 +20,7 @@ export default async function Home({ params, searchParams }: HomeProps) {
       <p>
         <Link href={`/${params.lang}/?login=true`}>Login</Link>
       </p>
-      <p>
-        <span>LOGIN MODAL</span>
-      </p>
-      <p>
-        <span>REGISTER MODAL</span>
-      </p>
+      <div>{showLogin && <ModalForm lang={params.lang} />}</div>
       <p>
         <Link href={`/${params.lang}/crew/profile`}>{dict.pageNames.crewProfile}</Link>
       </p>
