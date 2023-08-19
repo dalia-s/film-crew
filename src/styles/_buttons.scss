@@ -1,0 +1,19 @@
+button.button {
+  padding: 0.4em 1em;
+  border-radius: $borderRadius;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  &:active {
+    opacity: 0.8;
+  }
+  &.primary {
+    background-color: $textDark;
+  }
+}
+
+button.submit-button {
+  text-transform: uppercase;
+  margin-top: 3em;
+  align-self: end;
+}

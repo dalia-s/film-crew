@@ -1,0 +1,84 @@
+div.search-container {
+  margin: 3em 0 2em 0;
+  display: flex;
+  flex-direction: column;
+  input {
+    width: 100%;
+    outline-offset: 0;
+    padding-left: 2.2em;
+    padding-right: 2em;
+    border: 1px solid $textLight;
+    background: transparent
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+      no-repeat 0.5em center;
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+  div.search-input-wrapper {
+    font-size: $smallFont;
+    position: relative;
+    width: 17em;
+    button {
+      cursor: pointer;
+      position: absolute;
+      right: 0.8em;
+      top: 0.4em;
+      background-color: #f5f7fa;
+      border: none;
+      border-radius: 50%;
+      font-size: 0.5em;
+      height: 2.7em;
+      width: 2.7em;
+    }
+  }
+  span {
+    font-size: $smallFont;
+    color: $textLight;
+    font-style: italic;
+    padding: 0.5em 0;
+  }
+}
+
+div.filter-container {
+  font-size: $smallFont;
+  @media screen and (min-width: 950px) {
+    display: flex;
+  }
+  input,
+  select {
+    border-color: $textLight;
+  }
+
+  div.select-filters {
+    max-width: 30em;
+    margin-right: 2em;
+    .form-item {
+      &:first-child {
+        margin-right: 2em;
+        min-width: 17em;
+      }
+      &:last-child {
+        min-width: 7em;
+      }
+    }
+  }
+
+  div.input-filters {
+    min-width: 23em;
+    margin-right: 2em;
+    .column:first-child {
+      margin-right: 2em;
+    }
+  }
+
+  div.column.clear-all-button {
+    justify-content: end;
+    padding-bottom: 0.7em;
+    button {
+      color: $textDark;
+      width: max-content;
+      margin-top: 1em;
+    }
+  }
+}

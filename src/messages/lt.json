@@ -1,0 +1,26 @@
+{
+  "PageNames": {
+    "crewProfile": "Profilis",
+    "crewCalendar": "Kalendorius",
+    "producerProfile": "Prodiuserio Profilis",
+    "producerSearch": "Ieškoti Komandos Nario"
+  },
+  "Header": {
+    "enter": "Užeikite",
+    "exit": "Išėjimas",
+    "register": "Registruotis",
+    "signIn": "Prisijungti",
+    "logout": "Atsijungti",
+    "calendar": "Kalendorius",
+    "profile": "Profilis",
+    "search": "Ieškoti"
+  },
+  "LandingPage": {
+    "title": "Sveiki atvykę į FilmCrew portalą!",
+    "description": "LIETUVISKAI: This needs a lot more text to explain what this is and what to expect from functionality"
+  },
+  "Forms": {
+    "role": "Rolė",
+    "submit": "Išsaugoti"
+  }
+}

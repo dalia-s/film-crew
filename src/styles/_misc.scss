@@ -1,0 +1,30 @@
+div.loading-icon {
+  text-align: center;
+  svg.fa-spinner {
+    height: 4em;
+    padding: 3em;
+    color: $textLight;
+  }
+}
+
+div.under-construction {
+  margin-top: 5em;
+  text-align: center;
+  svg {
+    height: 5em;
+  }
+}
+
+div.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(51, 51, 51, 0.09);
+  backdrop-filter: blur(9px);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

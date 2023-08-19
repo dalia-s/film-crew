@@ -1,0 +1,66 @@
+form.form-body {
+  @include container;
+  min-width: 15em;
+
+  div.row {
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+  }
+
+  div.column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    flex: 1;
+    &:first-child {
+      margin-left: 0;
+    }
+    @media screen and (max-width: 700px) {
+      margin-left: 0;
+    }
+  }
+}
+
+form.account-type-form {
+  align-items: center;
+}
+
+div.form-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  flex: 1;
+  label {
+    margin-bottom: 0.3em;
+  }
+  &.center {
+    align-items: center;
+  }
+}
+
+div.radio-button-block {
+  font-size: 1.2em;
+  width: 12em;
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  input {
+    margin-right: 0.4em;
+  }
+}
+
+span.error-message {
+  font-size: $smallFont;
+  color: $dangerColor;
+  height: 1em;
+  margin: 0.25em 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  &.visible {
+    opacity: 1;
+  }
+}

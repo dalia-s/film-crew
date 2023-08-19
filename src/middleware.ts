@@ -1,34 +1,56 @@
-import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { match as matchLocale } from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
+import { NextResponse } from 'next/server'
+import createMiddleware from 'next-intl/middleware'
+import { authMiddleware } from '@clerk/nextjs'
+import { AuthObject } from '@clerk/nextjs/dist/types/server'
 import { i18n } from './utils/i18n-config'
+import { userRole } from './utils/helpers'
 
-function getLocale(request: NextRequest): string | undefined {
-  const negotiatorHeaders: Record<string, string> = {}
-  request.headers.forEach((value, key) => {
-    negotiatorHeaders[key] = value
-  })
-
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
-  // @ts-expect-error locales are readonly
-  const strLocales: string[] = i18n.locales
-  return matchLocale(languages, strLocales, i18n.defaultLocale)
-}
-
-// eslint-disable-next-line consistent-return
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  )
-
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request)
-    return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url))
+function getRole(auth: AuthObject) {
+  if (auth.sessionClaims?.userMetadata) {
+    // @ts-ignore Property 'role' does not exist on type '{}'
+    const { role } = auth.sessionClaims.userMetadata
+    return role
   }
+  return undefined
 }
+
+function checkUserRole(auth: AuthObject, reqUrl: string) {
+  const role = getRole(auth)
+  const setRolePage = reqUrl.includes('/account/')
+  if (!role && !setRolePage) {
+    const url = new URL('/account', reqUrl)
+    return NextResponse.redirect(url)
+  }
+  const crewPages = reqUrl.includes('/crew/')
+  const producerPages = reqUrl.includes('/producer/')
+  if ((producerPages && role !== userRole.producer) || (crewPages && role !== userRole.crew)) {
+    const url = new URL('/', reqUrl)
+    return NextResponse.redirect(url)
+  }
+  return undefined
+}
+
+const intlMiddleware = createMiddleware({
+  locales: [...i18n.locales],
+  defaultLocale: i18n.defaultLocale,
+})
+
+export default authMiddleware({
+  beforeAuth: (req: NextRequest) => intlMiddleware(req),
+  afterAuth: (auth, req) => {
+    if (!auth.userId && !auth.isPublicRoute) {
+      const url = new URL('/', req.url)
+      return NextResponse.redirect(url)
+    }
+    if (auth.userId && !auth.isPublicRoute) {
+      return checkUserRole(auth, req.url)
+    }
+    return undefined
+  },
+  publicRoutes: ['/', '/:locale', '/sign-in', '/:locale/sign-in', '/sign-up', '/:locale/sign-up'],
+})
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)'],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'], // understand the meaning
 }

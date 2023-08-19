@@ -1,0 +1,27 @@
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5em;
+}
+
+.cl-logoBox,
+.cl-header {
+  text-align: center;
+  justify-content: center;
+}
+
+.cl-card {
+  border-radius: $borderRadius;
+}
+
+.cl-rootBox {
+  margin: 0 auto;
+}
+
+.delete-icon {
+  color: $dangerColor;
+  height: 1em;
+  margin: 0 0.5em;
+  cursor: pointer;
+}

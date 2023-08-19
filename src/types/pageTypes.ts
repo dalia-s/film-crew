@@ -12,6 +12,6 @@ export type Params = {
 
 export type LayoutProps = Children & {
   params: {
-    lang: Locale
+    locale: Locale
   }
 }

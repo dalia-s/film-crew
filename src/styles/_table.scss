@@ -1,0 +1,93 @@
+div.table-container {
+  @include container;
+  margin-top: 2em;
+  min-width: 35em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $smallFont;
+
+  tr td:first-child {
+    width: 2em;
+  }
+
+  th {
+    background-color: $textLight;
+    color: #ffffff;
+    padding: 0.4em;
+    border: $border;
+    text-align: left;
+  }
+
+  td {
+    padding: 0.4em;
+    border: $border;
+    text-align: left;
+    &.intro {
+      background-color: $backgroundColor;
+      border-left: none;
+      padding-right: 1em;
+    }
+    &.spacer {
+      background-color: $backgroundColor;
+      border-right: none;
+    }
+  }
+
+  tr:hover td {
+    background-color: $backgroundColor;
+  }
+
+  button.row-expand {
+    cursor: pointer;
+    border: none;
+    background: inherit;
+    padding: 0;
+    font-size: 1.2em;
+    width: 100%;
+    &.header {
+      color: #ffffff;
+    }
+  }
+}
+
+div.pagination-container {
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  font-size: $smallFont;
+
+  button {
+    font-size: 1rem;
+    background-color: #ffffff;
+    border: $border;
+    margin: 0 0.1em;
+  }
+
+  span.page-number {
+    display: flex;
+    align-items: center;
+    margin: 0 0.8em;
+    strong {
+      margin-left: 0.5em;
+    }
+  }
+
+  span.page-navigation {
+    display: flex;
+    align-items: center;
+    border-left: $border;
+    padding-left: 0.5em;
+    input {
+      border: $border;
+      width: 3.5em;
+      margin: 0 0.5em;
+    }
+  }
+
+  select {
+    border: $border;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "PageNames": {
+    "crewProfile": "Crew Profile",
+    "crewCalendar": "Availability Calendar",
+    "producerProfile": "Producer Profile",
+    "producerSearch": "Crew Search"
+  },
+  "Header": {
+    "enter": "Enter",
+    "exit": "Exit",
+    "register": "Register",
+    "signIn": "Sign in",
+    "logout": "Logout",
+    "calendar": "Calendar",
+    "profile": "Profile",
+    "search": "Search"
+  },
+  "LandingPage": {
+    "title": "Welcome to FilmCrew!",
+    "description": "This is a coding playground, but some day it may become a film crew scheduling app."
+  },
+  "Forms": {
+    "role": "Role",
+    "submit": "Submit"
+  }
+}
