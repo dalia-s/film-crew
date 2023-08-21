@@ -1,8 +1,8 @@
+import { notFound } from 'next/navigation'
 import { Roboto } from 'next/font/google'
 import { useLocale } from 'next-intl'
-import { notFound } from 'next/navigation'
 import { ClerkProvider } from '@clerk/nextjs'
-import Header from 'app/header/header'
+import Header from 'app/[locale]/(header)/header'
 import { LayoutProps } from '@/types/pageTypes'
 import ltLocalisation from '../../messages/ltAuthLocale'
 

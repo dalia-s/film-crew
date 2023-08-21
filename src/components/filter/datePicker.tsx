@@ -1,30 +1,51 @@
+'use client'
+
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import DatePicker from 'react-datepicker'
+import { updateQueryParam } from '@/utils/helpers'
+import { useFilterState } from '@/utils/customHooks'
 
 type DatePickerProps = {
-  name: string
   label: string
-  value: Date
+  filterParam: string
   dateFormat?: string
   placeholder?: string
   isClearable?: boolean
-  onChange: (date: Date | null, name: string) => void
 }
 
 export default function DatePickerInput({
-  name,
+  filterParam,
   label,
-  value,
   dateFormat = 'yyyy-MM-dd',
   placeholder = 'YYYY-MM-DD',
   isClearable = false,
-  onChange,
 }: DatePickerProps) {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const stateInit = () => {
+    const paramsDate = searchParams.get(filterParam)
+    return paramsDate ? new Date(paramsDate) : null
+  }
+  const { value, setValue } = useFilterState<Date | null>(filterParam, stateInit, null)
+
+  const updateRoute = (newValue: string) => {
+    const newQueryString = updateQueryParam(searchParams, filterParam, newValue)
+    router.push(`${pathname}?${newQueryString}`)
+  }
+
+  const onChange = (newDate: Date | null) => {
+    setValue(newDate)
+    updateRoute(newDate?.toLocaleDateString('lt') || '')
+  }
+
   return (
     <div className="form-item">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={filterParam}>{label}</label>
       <DatePicker
-        id={name}
-        onChange={(v) => onChange(v, name)}
+        id={filterParam}
+        onChange={onChange}
         selected={value}
         dateFormat={dateFormat}
         placeholderText={placeholder}

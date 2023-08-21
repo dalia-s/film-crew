@@ -5,17 +5,7 @@ import { useForm, SubmitHandler, FieldValues } from 'react-hook-form'
 import { useUser } from '@clerk/nextjs'
 import { TextInput, TextArea, DatePicker } from '@/components/forms'
 
-// type Inputs = {
-//   firstName: string
-//   lastName: string
-//   intro: string
-//   currentProjectName: string
-//   currentProjectDescription: string
-//   currentProjectStartDate: string
-//   currentProjectEndDate: string
-// }
-
-export default function ProducerForm() {
+export default function ProducerProfileForm() {
   const t = useTranslations('Forms')
   const { user } = useUser() // need to get ALL user data if user exist, if not, use the name only, from auth probably in BE
 

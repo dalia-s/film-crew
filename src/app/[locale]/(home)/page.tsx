@@ -6,7 +6,7 @@ export default function Page() {
   const loc = useLocale()
 
   return (
-    <>
+    <div className="landing-page-container">
       <h2>{t('title')}</h2>
       <h4>{t('description')}</h4>
       <p>
@@ -18,6 +18,6 @@ export default function Page() {
       <p>
         <Link href={`${loc}/account`}>Account</Link>
       </p>
-    </>
+    </div>
   )
 }

@@ -1,12 +1,11 @@
 div.search-container {
-  margin: 3em 0 2em 0;
+  margin: 3em 0 1.5em 0;
   display: flex;
   flex-direction: column;
   input {
     width: 100%;
     outline-offset: 0;
-    padding-left: 2.2em;
-    padding-right: 2em;
+    padding: 0.4em 2em 0.4em 2.2em;
     border: 1px solid $textLight;
     background: transparent
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
@@ -23,13 +22,13 @@ div.search-container {
       cursor: pointer;
       position: absolute;
       right: 0.8em;
-      top: 0.4em;
+      top: 0.6em;
       background-color: #f5f7fa;
       border: none;
       border-radius: 50%;
       font-size: 0.5em;
-      height: 2.7em;
-      width: 2.7em;
+      height: 3em;
+      width: 3em;
     }
   }
   span {
@@ -41,6 +40,10 @@ div.search-container {
 }
 
 div.filter-container {
+  box-shadow: $boxShadow;
+  border-radius: $borderRadius;
+  padding: 1rem 2rem 0.5rem 2rem;
+  width: fit-content;
   font-size: $smallFont;
   @media screen and (min-width: 950px) {
     display: flex;
@@ -76,7 +79,8 @@ div.filter-container {
     justify-content: end;
     padding-bottom: 0.7em;
     button {
-      color: $textDark;
+      text-transform: uppercase;
+      background: $textLight;
       width: max-content;
       margin-top: 1em;
     }

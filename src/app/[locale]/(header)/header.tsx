@@ -2,15 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useLocale } from 'next-intl'
 import { SignedIn, SignedOut } from '@clerk/nextjs'
-import logo from '../../../public/logo.png'
+import logo from '../../../../public/logo.png'
 import LanguageToggle from './languageToggle'
 import { MySignInButton, MySignOutButton } from './authButtons'
 import { ProducerLinks, CrewLinks } from './roleSpecificLinks'
-import { getUserRole, userRole } from '@/utils/helpers'
+import { getUserRole } from '@/utils/helpers'
+import { userRole } from '@/utils/consts'
 
-export default async function Header() {
+export default function Header() {
   const locale = useLocale()
-  const role = await getUserRole()
+  const role = getUserRole()
 
   return (
     <header>

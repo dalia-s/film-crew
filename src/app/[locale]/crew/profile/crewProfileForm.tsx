@@ -4,34 +4,11 @@ import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form'
 import { useUser } from '@clerk/nextjs'
 import { TextInput, TextArea, DateRangePicker, SingleSelect } from '@/components/forms'
+import { professionSingleSelectOptions, experienceSingleSelectOptions } from '@/utils/consts'
 
-export default function ProducerForm() {
+export default function CrewProfileForm() {
   const t = useTranslations('Forms')
   const { user } = useUser() // need to get ALL user data if user exist, if not, use the name only, from auth probably in BE
-
-  const professionOptions = [
-    { name: '---Select one---', value: '' },
-    { name: 'Cinematographer', value: 'cinematographer' },
-    { name: 'Cameraman', value: 'cameraman' },
-    { name: 'Film editor', value: 'film_editor' },
-    { name: 'Production designer', value: 'production_designer' },
-    { name: 'Set decorator', value: 'set_decorator' },
-    { name: 'Costume designer', value: 'costume_designer' },
-    { name: 'Makeup artist', value: 'makeup_artist' },
-    { name: 'Audio engineer', value: 'audio_engineer' },
-    { name: 'Sound editor', value: 'sound_editor' },
-    { name: 'Stunt coordinator', value: 'stunt_coordinator' },
-    { name: 'Other', value: 'other' },
-  ]
-
-  const experienceOptions = [
-    { name: '---Select---', value: '' },
-    { name: '0-1', value: '1' },
-    { name: '1-2', value: '2' },
-    { name: '2-5', value: '5' },
-    { name: '5-10', value: '10' },
-    { name: '10+', value: '11' },
-  ]
 
   const defaultValues = {
     firstName: user?.firstName || '',
@@ -103,7 +80,7 @@ export default function ProducerForm() {
             <SingleSelect
               register={register}
               registerOptions={{ required: true }}
-              selectOptions={professionOptions}
+              selectOptions={professionSingleSelectOptions}
               label="Profession"
               name="profession"
               error={!!errors.profession}
@@ -112,7 +89,7 @@ export default function ProducerForm() {
             <SingleSelect
               register={register}
               registerOptions={{ required: true }}
-              selectOptions={experienceOptions}
+              selectOptions={experienceSingleSelectOptions}
               label="Years of experience"
               name="experienceYears"
               error={!!errors.experienceYears}

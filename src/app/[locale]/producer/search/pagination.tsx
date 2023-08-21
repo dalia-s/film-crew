@@ -1,5 +1,5 @@
 import { Table } from '@tanstack/react-table'
-import { CrewMember } from './dummyData'
+import { CrewMember } from '@/utils/dummyData'
 
 export default function Pagination({ table }: { table: Table<CrewMember> }) {
   return (

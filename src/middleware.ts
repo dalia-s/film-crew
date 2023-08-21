@@ -4,7 +4,7 @@ import createMiddleware from 'next-intl/middleware'
 import { authMiddleware } from '@clerk/nextjs'
 import { AuthObject } from '@clerk/nextjs/dist/types/server'
 import { i18n } from './utils/i18n-config'
-import { userRole } from './utils/helpers'
+import { userRole } from './utils/consts'
 
 function getRole(auth: AuthObject) {
   if (auth.sessionClaims?.userMetadata) {
