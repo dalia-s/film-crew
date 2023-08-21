@@ -23,21 +23,26 @@ export const crewListParams = {
   availableTo: 'availableTo',
 } as const
 
-export const professionOptions = [
-  { name: 'Cinematographer', value: 'cinematographer' },
-  { name: 'Cameraman', value: 'cameraman' },
-  { name: 'Film editor', value: 'film_editor' },
-  { name: 'Production designer', value: 'production_designer' },
-  { name: 'Set decorator', value: 'set_decorator' },
-  { name: 'Costume designer', value: 'costume_designer' },
-  { name: 'Makeup artist', value: 'makeup_artist' },
-  { name: 'Audio engineer', value: 'audio_engineer' },
-  { name: 'Sound editor', value: 'sound_editor' },
-  { name: 'Stunt coordinator', value: 'stunt_coordinator' },
-  { name: 'Other', value: 'other' },
-]
+export function getProfessionOptions(t: (key: any) => string) {
+  const professions = [
+    { name: t('professions.cinematographer'), value: 'cinematographer' },
+    { name: t('professions.cameraman'), value: 'cameraman' },
+    { name: t('professions.film_editor'), value: 'film_editor' },
+    { name: t('professions.production_designer'), value: 'production_designer' },
+    { name: t('professions.set_decorator'), value: 'set_decorator' },
+    { name: t('professions.costume_designer'), value: 'costume_designer' },
+    { name: t('professions.makeup_artist'), value: 'makeup_artist' },
+    { name: t('professions.audio_engineer'), value: 'audio_engineer' },
+    { name: t('professions.sound_editor'), value: 'sound_editor' },
+    { name: t('professions.stunt_coordinator'), value: 'stunt_coordinator' },
+    { name: t('other'), value: 'other' },
+  ]
+  return professions
+}
 
-export const professionSingleSelectOptions = [{ name: '---Select one---', value: '' }, ...professionOptions]
+export function getProfessionSingleSelectOptions(t: (key: any) => string) {
+  return [{ name: t('selectOne'), value: '' }, ...getProfessionOptions(t)]
+}
 
 export const experienceOptions = [
   { name: '0-1', value: '1' },
@@ -47,4 +52,6 @@ export const experienceOptions = [
   { name: '10+', value: '11' },
 ]
 
-export const experienceSingleSelectOptions = [{ name: '---Select---', value: '' }, ...experienceOptions]
+export function getExperienceSingleSelectOptions(t: (key: any) => string) {
+  return [{ name: t('select'), value: '' }, ...experienceOptions]
+}

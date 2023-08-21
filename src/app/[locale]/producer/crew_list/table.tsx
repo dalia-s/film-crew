@@ -1,6 +1,7 @@
 'use client'
 
 import { Fragment } from 'react'
+import { useTranslations } from 'next-intl'
 import {
   flexRender,
   getCoreRowModel,
@@ -13,7 +14,10 @@ import Pagination from './pagination'
 import { getTableColumns } from './tableColumnsConfig'
 
 export default function Table() {
-  const columns = getTableColumns()
+  const headerT = useTranslations('Table.crewListHeaders')
+
+  const columns = getTableColumns(headerT)
+
   const table = useReactTable({
     data: dummyData,
     columns,

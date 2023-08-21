@@ -7,9 +7,10 @@ import { crewListParams } from '@/utils/consts'
 
 type SearchProps = {
   infoText: string
+  placeholderText: string
 }
 
-export default function Search({ infoText }: SearchProps) {
+export default function Search({ infoText, placeholderText }: SearchProps) {
   const updateParams = useFilterParamUpdate(crewListParams.search)
   const searchParams = useSearchParams()
 
@@ -32,7 +33,7 @@ export default function Search({ infoText }: SearchProps) {
   return (
     <div className="search-container">
       <div className="search-input-wrapper">
-        <input type="search" placeholder="Search..." onChange={onChange} value={inputValue} />
+        <input type="search" placeholder={placeholderText} onChange={onChange} value={inputValue} />
         <button type="button" onClick={onClear}>
           &#x2715;
         </button>

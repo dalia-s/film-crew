@@ -34,7 +34,7 @@ export default function ProducerProfileForm() {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data)
     // save data and depending on the selection redirect to appropriate profile page
-    // router.push(`/${loc}/crew/profile`)
+    // router.push(`/crew/profile`)
   }
 
   return (
@@ -45,53 +45,63 @@ export default function ProducerProfileForm() {
             <TextInput
               register={register}
               registerOptions={{ required: true }}
-              label="First name"
+              label={t('profileForm.firstName')}
               name="firstName"
               error={!!errors.firstName}
-              errorMessage="Please enter your first name."
-              placeholder="First name"
+              errorMessage={t('profileForm.firstNameErrM')}
+              placeholder={t('profileForm.firstName')}
             />
           </div>
           <div className="column">
             <TextInput
               register={register}
               registerOptions={{ required: true }}
-              label="Last name"
+              label={t('profileForm.lastName')}
               name="lastName"
               error={!!errors.lastName}
               errorMessage="Please enter your last name."
-              placeholder="Last name"
+              placeholder={t('profileForm.lastName')}
             />
           </div>
         </div>
         <TextArea
           register={register}
           registerOptions={{ required: false }}
-          label="Introduce yourself"
+          label={t('profileForm.intro')}
           name="intro"
-          placeholder="Tell us a little about yourself."
+          placeholder={t('profileForm.introPlh')}
         />
         <TextInput
           register={register}
           registerOptions={{ required: true }}
-          label="Your current project name"
+          label={t('profileForm.currentProjectName')}
           name="currentProjectName"
           error={!!errors.currentProjectName}
-          errorMessage="Please enter your current project name."
-          placeholder="Project name"
+          errorMessage={t('profileForm.currentProjectName')}
+          placeholder={t('profileForm.currentProjectName')}
         />
         <TextArea
           register={register}
-          label="Your project description"
+          label={t('profileForm.currentProjectDescription')}
           name="currentProjectDescription"
-          placeholder="Tell us a little about your project."
+          placeholder={t('profileForm.currentProjectName')}
         />
         <div className="row">
           <div className="column">
-            <DatePicker control={control} name="currentProjectStartDate" label="Project start date" isClearable />
+            <DatePicker
+              control={control}
+              name="currentProjectStartDate"
+              label={t('profileForm.currentProjectStartDate')}
+              isClearable
+            />
           </div>
           <div className="column">
-            <DatePicker control={control} name="currentProjectEndDate" label="Project end date" isClearable />
+            <DatePicker
+              control={control}
+              name="currentProjectEndDate"
+              label={t('profileForm.currentProjectEndDate')}
+              isClearable
+            />
           </div>
         </div>
         <button type="submit" className="button primary submit-button">

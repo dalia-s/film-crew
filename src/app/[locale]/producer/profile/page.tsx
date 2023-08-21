@@ -17,8 +17,8 @@ export default function Page() {
       <h2>{t('producerProfile')}</h2>
       <NextIntlClientProvider locale={loc} messages={pick(messages || {}, 'Forms')}>
         <Form />
+        <DeleteUserComponent />
       </NextIntlClientProvider>
-      <DeleteUserComponent />
     </>
   )
 }

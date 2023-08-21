@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table'
 import { CrewMember } from '@/utils/dummyData'
 
-export function getTableColumns() {
+export function getTableColumns(t: (key: any) => string) {
   const columnHelper = createColumnHelper<CrewMember>()
 
   const columns = [
@@ -19,27 +19,27 @@ export function getTableColumns() {
       meta: { className: 'test-class' },
     }),
     columnHelper.accessor('name', {
-      header: 'Name',
+      header: t('name'),
       cell: (props) => props.getValue(),
     }),
     columnHelper.accessor('profession', {
-      header: 'Profession',
+      header: t('profession'),
       cell: (props) => props.getValue(),
     }),
     columnHelper.accessor('experienceYears', {
-      header: 'Experience',
+      header: t('experienceYears'),
       cell: (props) => <span>{props.getValue()} y</span>,
     }),
     columnHelper.accessor('hourlyRate', {
-      header: 'Hourly rate',
+      header: t('hourlyRate'),
       cell: (props) => <span>{props.getValue()} €</span>,
     }),
     columnHelper.accessor('availability', {
-      header: 'Dates available',
+      header: t('availability'),
       cell: (props) => props.getValue(),
     }),
     columnHelper.accessor('contactNumber', {
-      header: 'Contact number',
+      header: t('contactNumber'),
       cell: (props) => props.getValue(),
     }),
   ]

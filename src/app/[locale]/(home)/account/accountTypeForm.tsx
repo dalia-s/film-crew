@@ -22,7 +22,7 @@ export default function AccountTypeForm() {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data)
     // save data (create metadata) and depending on the selection redirect to appropriate profile page
-    // router.push(`/${loc}/crew/profile`)
+    // router.push(`/crew/profile`)
     router.push(`/producer/profile`)
   }
 
@@ -30,18 +30,18 @@ export default function AccountTypeForm() {
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="form-body account-type-form">
         <div className="form-item">
-          <div>Please set your account type:</div>
+          <div>{t('accountForm.radioLabel')}</div>
           <div className="radio-button-block">
             <label>
               <input {...register('role', { required: true })} type="radio" value="crew" id="crew" />
-              Crew
+              {t('accountForm.crewRadio')}
             </label>
             <label>
               <input {...register('role', { required: true })} type="radio" value="producer" id="producer" />
-              Producer
+              {t('accountForm.producerRadio')}
             </label>
           </div>
-          <ErrorMessage show={!!errors.role} message="Please select one of the options." />
+          <ErrorMessage show={!!errors.role} message={t('accountForm.errorMessage')} />
         </div>
         <button type="submit" className="button primary submit-button">
           {t('submit')}

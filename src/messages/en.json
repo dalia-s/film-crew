@@ -3,24 +3,102 @@
     "crewProfile": "Crew Profile",
     "crewCalendar": "Availability Calendar",
     "producerProfile": "Producer Profile",
-    "producerSearch": "Crew Search"
-  },
-  "Header": {
-    "enter": "Enter",
-    "exit": "Exit",
-    "register": "Register",
-    "signIn": "Sign in",
-    "logout": "Logout",
-    "calendar": "Calendar",
-    "profile": "Profile",
-    "search": "Search"
+    "producerSearch": "Crew List"
   },
   "LandingPage": {
     "title": "Welcome to FilmCrew!",
     "description": "This is a coding playground, but some day it may become a film crew scheduling app."
   },
+  "AccountTypePage": {
+    "title": "Account Type"
+  },
+  "CrewProfilePage": {
+    "title": "Crew Profile",
+    "description": "Please fill in your information below."
+  },
   "Forms": {
-    "role": "Role",
-    "submit": "Submit"
+    "submit": "Submit",
+    "deleteUser": {
+      "deleteConfirmationMsg": "Are you sure you want to delete your account?",
+      "deleteAccountInstructions": "To permanently delete your account and all of the associated data, please click here:"
+    },
+    "accountForm": {
+      "radioLabel": "Please set your account type:",
+      "crewRadio": "Crew",
+      "producerRadio": "Producer",
+      "errorMessage": "Please select one of the options."
+    },
+    "profileForm": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "intro": "Introduce yourself",
+      "profession": "Profession",
+      "hourlyRate": "Hourly rate (€)",
+      "experienceYears": "Years of experience",
+      "availability": "Availability",
+      "contactNo": "Your contact number",
+      "firstNameErrM": "Please enter your first name.",
+      "lastNameErrM": "Please enter your last name.",
+      "professionErrM": "Please select your profession.",
+      "hourlyRateErrM": "Please enter your hourly rate (numbers only).",
+      "experienceYearsErrM": "Please select your experience.",
+      "availabilityErrM": "Please select when you are next available.",
+      "contactNoErrM": "Please enter a valid contact number.",
+      "introPlh": "Tell us a little about yourself.",
+      "contactNoPlh": "+XXX-XXX-XXXXX",
+      "currentProjectName": "Your current project name",
+      "currentProjectNamePlh": "Project name",
+      "currentProjectNameErrM": "Please enter your current project name.",
+      "currentProjectDescription": "Your project description",
+      "currentProjectDescriptionPlh": "Tell us a little about your project.",
+      "currentProjectStartDate": "Project start date",
+      "currentProjectEndDate": "Project end date"
+    }
+  },
+  "Filter": {
+    "searchText": "Search by name or info in the introduction.",
+    "searchPlh": "Search",
+    "profession": "Profession",
+    "experience": "Experience (y)",
+    "minHRate": "Min hourly rate (€)",
+    "maxHRate": "Max hourly rate (€)",
+    "availableFrom": "Available from",
+    "availableTo": "Available to",
+    "clearButton": "Clear all"
+  },
+  "Table": {
+    "pagination": {
+      "page": "Page",
+      "goTo": "Go to page:",
+      "show": "Show"
+    },
+    "crewListHeaders": {
+      "name": "Name",
+      "profession": "Profession",
+      "experienceYears": "Experience",
+      "hourlyRate": "Hourly rate",
+      "availability": "Dates available",
+      "contactNumber": "Contact number"
+    }
+  },
+  "SelectOptions": {
+    "professions": {
+      "cinematographer": "Cinematographer",
+      "cameraman": "Cameraman",
+      "film_editor": "Film editor",
+      "production_designer": "Production designer",
+      "set_decorator": "Set decorator",
+      "costume_designer": "Costume designer",
+      "makeup_artist": "Makeup artist",
+      "audio_engineer": "Audio engineer",
+      "sound_editor": "Sound editor",
+      "stunt_coordinator": "Stunt coordinator"
+    },
+    "other": "Other",
+    "selectOne": "---Select one---",
+    "select": "---Select---"
+  },
+  "Misc": {
+    "underConstruction": "UNDER CONSTRUCTION"
   }
 }

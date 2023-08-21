@@ -18,7 +18,7 @@ export function CrewLinks() {
 export function ProducerLinks() {
   return (
     <div className="nav-links">
-      <Link href="/producer/search">
+      <Link href="/producer/crew_list">
         <FaIcon icon={faMagnifyingGlass} />
       </Link>
       <Link href="/producer/profile">

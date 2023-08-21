@@ -1,7 +1,10 @@
+import { useTranslations } from 'next-intl'
 import { Table } from '@tanstack/react-table'
 import { CrewMember } from '@/utils/dummyData'
 
 export default function Pagination({ table }: { table: Table<CrewMember> }) {
+  const t = useTranslations('Table.pagination')
+
   return (
     <div className="pagination-container flex items-center gap-2">
       <button type="button" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()}>
@@ -21,13 +24,13 @@ export default function Pagination({ table }: { table: Table<CrewMember> }) {
         &#187;
       </button>
       <span className="page-number">
-        <div>Page</div>
+        <div>{t('page')}</div>
         <strong>
           {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
         </strong>
       </span>
       <span className="page-navigation">
-        Go to page:
+        {t('goTo')}
         <input
           type="number"
           defaultValue={table.getState().pagination.pageIndex + 1}
@@ -45,7 +48,7 @@ export default function Pagination({ table }: { table: Table<CrewMember> }) {
       >
         {[10, 20, 30, 40, 50].map((pageSize) => (
           <option key={pageSize} value={pageSize}>
-            Show {pageSize}
+            {t('show')} {pageSize}
           </option>
         ))}
       </select>
