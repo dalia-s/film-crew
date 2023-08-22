@@ -63,7 +63,7 @@ export default function CrewProfileForm() {
               label={t('profileForm.lastName')}
               name="lastName"
               error={!!errors.lastName}
-              errorMessage="Please enter your last name."
+              errorMessage={t('profileForm.lastNameErrM')}
               placeholder={t('profileForm.lastName')}
             />
           </div>

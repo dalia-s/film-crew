@@ -2,103 +2,99 @@
   "PageNames": {
     "crewProfile": "Profilis",
     "crewCalendar": "Kalendorius",
-    "producerProfile": "Prodiuserio Profilis",
-    "producerSearch": "Ieškoti Komandos Nario"
+    "producerProfile": "Profilis",
+    "producerSearch": "Ieškoti komandos nario"
   },
   "LandingPage": {
     "title": "Sveiki atvykę į FilmCrew portalą!",
     "description": "Prašau, skaitykite aprašymą angliškai."
   },
   "AccountTypePage": {
-    "title": "Account Type"
-  },
-  "CrewProfilePage": {
-    "title": "Crew Profile",
-    "description": "Please fill in your information below."
+    "title": "Paskyros tipas"
   },
   "Forms": {
     "submit": "Išsaugoti",
     "deleteUser": {
-      "deleteConfirmationMsg": "Are you sure you want to delete your account?",
-      "deleteAccountInstructions": "To permanently delete your account and all of the associated data, please click here:"
+      "deleteConfirmationMsg": "Ar tikrai norite ištrinti savo paskyrą?",
+      "deleteAccountInstructions": "Norėdami ištrinti savo paskyrą ir visus su ja susijusius duomenis spauskite čia:"
     },
     "accountForm": {
-      "radioLabel": "Please set your account type:",
-      "crewRadio": "Crew",
-      "producerRadio": "Producer",
-      "errorMessage": "Please select one of the options."
+      "radioLabel": "Pasirinkite savo paskyros tipą:",
+      "crewRadio": "Komandos nario",
+      "producerRadio": "Prodiuserio",
+      "errorMessage": "Pasirinkite vieną iš paskyros tipų."
     },
     "profileForm": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "intro": "Introduce yourself",
-      "profession": "Profession",
-      "hourlyRate": "Hourly rate (€)",
-      "experienceYears": "Years of experience",
-      "availability": "Availability",
-      "contactNo": "Your contact number",
-      "firstNameErrM": "Please enter your first name.",
-      "lastNameErrM": "Please enter your last name.",
-      "professionErrM": "Please select your profession.",
-      "hourlyRateErrM": "Please enter your hourly rate (numbers only).",
-      "experienceYearsErrM": "Please select your experience.",
-      "availabilityErrM": "Please select when you are next available.",
-      "contactNoErrM": "Please enter a valid contact number.",
-      "introPlh": "Tell us a little about yourself.",
+      "firstName": "Vardas",
+      "lastName": "Pavardė",
+      "intro": "Prisistatymas",
+      "profession": "Darbo sritis",
+      "hourlyRate": "Valandinis įkainis (€)",
+      "experienceYears": "Metai patirties",
+      "availability": "Dienos kada galite dirbti",
+      "contactNo": "Telefono numeris",
+      "firstNameErrM": "Įveskite savo vardą.",
+      "lastNameErrM": "Įveskite savo pavardę.",
+      "professionErrM": "Pasirinkite savo darbo sritį.",
+      "hourlyRateErrM": "Įveskite savo valandinį įkainį.",
+      "experienceYearsErrM": "Pasirinkite savo patirties trukmę.",
+      "availabilityErrM": "Pažymėkite kada galėtumėte dirbti.",
+      "contactNoErrM": "Įveskite galiojantį telefno numerį.",
+      "introPlh": "Trumpai papasakokite apie save.",
       "contactNoPlh": "+XXX-XXX-XXXXX",
-      "currentProjectName": "Your current project name",
-      "currentProjectNamePlh": "Project name",
-      "currentProjectNameErrM": "Please enter your current project name.",
-      "currentProjectDescription": "Your project description",
-      "currentProjectDescriptionPlh": "Tell us a little about your project.",
-      "currentProjectStartDate": "Project start date",
-      "currentProjectEndDate": "Project end date"
+      "currentProjectName": "Dabartinio projekto pavadinimas",
+      "currentProjectNamePlh": "Projekto pavadinimas",
+      "currentProjectNameErrM": "Įveskite dabartinio projekto pavadinimą.",
+      "currentProjectDescription": "Projekto aprašymas",
+      "currentProjectDescriptionPlh": "Trumpai papasakokite apie savo dabartinį projektą.",
+      "currentProjectStartDate": "Projekto pradžia",
+      "currentProjectEndDate": "Projekto pabaiga"
     }
   },
   "Filter": {
-    "searchText": "Search by name or info in the introduction.",
-    "searchPlh": "Search",
-    "profession": "Profession",
-    "experience": "Experience (y)",
-    "minHRate": "Min hourly rate (€)",
-    "maxHRate": "Max hourly rate (€)",
-    "availableFrom": "Available from",
-    "availableTo": "Available to",
-    "clearButton": "Clear all"
+    "searchText": "Ieškokite pagal vardą ar prisistatymą.",
+    "searchPlh": "Ieškokite",
+    "profession": "Sritis",
+    "experience": "Patirtis (m)",
+    "minHRate": "Min val. įkainis (€)",
+    "maxHRate": "Max val. įkainis (€)",
+    "availableFrom": "Prieinami nuo",
+    "availableTo": "Prieinami iki",
+    "clearButton": "Išvalyti visus"
   },
   "Table": {
     "pagination": {
-      "page": "Page",
-      "goTo": "Go to page:",
-      "show": "Show"
+      "page": "Puslapis",
+      "goTo": "Eikite į puslapį:",
+      "show": "Rodyti"
     },
     "crewListHeaders": {
-      "name": "Name",
-      "profession": "Profession",
-      "experienceYears": "Experience",
-      "hourlyRate": "Hourly rate",
-      "availability": "Dates available",
-      "contactNumber": "Contact number"
+      "name": "Vardas",
+      "profession": "Sritis",
+      "experienceYears": "Patirtis",
+      "hourlyRate": "Val. įkainis",
+      "availability": "Prieinamos dienos",
+      "contactNumber": "Telefono numeris"
     }
   },
   "SelectOptions": {
     "professions": {
-      "cinematographer": "Cinematographer",
-      "cameraman": "Cameraman",
-      "film_editor": "Film editor",
-      "production_designer": "Production designer",
-      "set_decorator": "Set decorator",
-      "costume_designer": "Costume designer",
-      "makeup_artist": "Makeup artist",
-      "audio_engineer": "Audio engineer",
-      "sound_editor": "Sound editor",
-      "stunt_coordinator": "Stunt coordinator"
+      "cinematographer": "Kinematografija",
+      "cameraman": "Kameros operatorius(ė)",
+      "film_editor": "Redakcija",
+      "production_designer": "Gamybos dizainas",
+      "set_decorator": "Dekoracijos",
+      "costume_designer": "Kostiumų dizainas",
+      "makeup_artist": "Makiažas",
+      "audio_engineer": "Garso inžinerija",
+      "sound_editor": "Garso redakcija",
+      "stunt_coordinator": "Triukai"
     },
-    "other": "Other",
-    "selectOne": "---Select one---",
-    "select": "---Select---"
+    "other": "Kita",
+    "selectOne": "---Pasirinkite---",
+    "select": "---Pasirinkite---"
   },
   "Misc": {
-    "underConstruction": "UNDER CONSTRUCTION"
+    "underConstruction": "VYKSTA DARBAI"
   }
 }

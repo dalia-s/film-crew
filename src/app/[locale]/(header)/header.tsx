@@ -6,12 +6,12 @@ import logo from '../../../../public/logo.png'
 import LanguageToggle from './languageToggle'
 import { MySignInButton, MySignOutButton } from './authButtons'
 import { ProducerLinks, CrewLinks } from './roleSpecificLinks'
-import { getUserRole } from '@/utils/helpers'
+import { getAsyncUserRole } from '@/utils/userUtils'
 import { userRole } from '@/utils/consts'
 
-export default function Header() {
+export default async function Header() {
   const locale = useLocale()
-  const role = getUserRole()
+  const role = await getAsyncUserRole()
 
   return (
     <header>

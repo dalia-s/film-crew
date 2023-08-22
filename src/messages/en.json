@@ -12,10 +12,6 @@
   "AccountTypePage": {
     "title": "Account Type"
   },
-  "CrewProfilePage": {
-    "title": "Crew Profile",
-    "description": "Please fill in your information below."
-  },
   "Forms": {
     "submit": "Submit",
     "deleteUser": {

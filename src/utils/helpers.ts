@@ -1,12 +1,5 @@
-import { auth } from '@clerk/nextjs'
 import { ReadonlyURLSearchParams } from 'next/navigation'
-import { UserRoleType, pageSearchParams } from './consts'
-
-export function getUserRole(): UserRoleType | undefined {
-  const { sessionClaims } = auth()
-  // @ts-ignore Property 'role' does not exist on type '{}'
-  return sessionClaims?.userMetadata?.role
-}
+import { pageSearchParams } from './consts'
 
 export function updateQueryParam(searchParams: ReadonlyURLSearchParams, name: string, value: string): string {
   const params = new URLSearchParams(Array.from(searchParams.entries()))
@@ -21,3 +14,4 @@ export function updateQueryParam(searchParams: ReadonlyURLSearchParams, name: st
 
   return params.toString()
 }
+export default updateQueryParam

@@ -77,14 +77,14 @@ export default function ProducerProfileForm() {
           label={t('profileForm.currentProjectName')}
           name="currentProjectName"
           error={!!errors.currentProjectName}
-          errorMessage={t('profileForm.currentProjectName')}
-          placeholder={t('profileForm.currentProjectName')}
+          errorMessage={t('profileForm.currentProjectNameErrM')}
+          placeholder={t('profileForm.currentProjectNamePlh')}
         />
         <TextArea
           register={register}
           label={t('profileForm.currentProjectDescription')}
           name="currentProjectDescription"
-          placeholder={t('profileForm.currentProjectName')}
+          placeholder={t('profileForm.currentProjectDescriptionPlh')}
         />
         <div className="row">
           <div className="column">

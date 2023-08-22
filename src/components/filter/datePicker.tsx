@@ -50,6 +50,7 @@ export default function DatePickerInput({
         dateFormat={dateFormat}
         placeholderText={placeholder}
         isClearable={isClearable}
+        autoComplete="off"
       />
     </div>
   )
