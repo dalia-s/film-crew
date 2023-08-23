@@ -6,7 +6,7 @@ import logo from '../../../../public/logo.png'
 import LanguageToggle from './languageToggle'
 import { MySignInButton, MySignOutButton } from './authButtons'
 import { ProducerLinks, CrewLinks } from './roleSpecificLinks'
-import { getAsyncUserRole } from '@/utils/userUtils'
+import { getAsyncUserRole } from '@/utils/userService'
 import { userRole } from '@/utils/consts'
 
 export default async function Header() {

@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { useLocale, useMessages, NextIntlClientProvider, useTranslations } from 'next-intl'
 import pick from 'lodash/pick'
-import { getUserRole, getUserRedirectPath } from '@/utils/userUtils'
+import { getUserRole, getUserRedirectPath } from '@/utils/userService'
 import AccountTypeForm from './accountTypeForm'
 
 export default function Page() {

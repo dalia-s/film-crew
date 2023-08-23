@@ -4,10 +4,11 @@ import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import ErrorMessage from '@/components/forms/formComponents'
-import { getUserRedirectPath } from '@/utils/userUtils'
+import { getUserRedirectPath, createUser } from '@/utils/userService'
+import { UserRole } from '@/types/types'
 
 type Inputs = {
-  role: string
+  role: UserRole
 }
 
 export default function AccountTypeForm() {
@@ -22,15 +23,10 @@ export default function AccountTypeForm() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const body = JSON.stringify(data)
-      await fetch('/api/user', {
-        method: 'POST',
-        body,
-      })
+      await createUser(data)
       router.push(getUserRedirectPath(data.role))
     } catch (e) {
-      // console.log(e)
-      // handle error
+      // TODO: show error message
     }
   }
 
@@ -39,11 +35,11 @@ export default function AccountTypeForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="form-body account-type-form">
         <div>{t('accountForm.radioLabel')}</div>
         <div className="radio-button-block">
-          <label>
+          <label htmlFor="crew">
             <input {...register('role', { required: true })} type="radio" value="crew" id="crew" />
             {t('accountForm.crewRadio')}
           </label>
-          <label>
+          <label htmlFor="producer">
             <input {...register('role', { required: true })} type="radio" value="producer" id="producer" />
             {t('accountForm.producerRadio')}
           </label>

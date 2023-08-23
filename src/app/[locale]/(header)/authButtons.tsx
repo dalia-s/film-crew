@@ -9,7 +9,7 @@ export function MySignInButton() {
   return (
     <SignInButton mode="modal">
       <button className="button header-auth-button" type="button">
-        <FaIcon icon={faArrowRightToBracket} className="enter" />
+        <FaIcon icon={faArrowRightToBracket} />
       </button>
     </SignInButton>
   )
@@ -20,7 +20,7 @@ export function MySignOutButton() {
 
   return (
     <button className="button header-auth-button" type="button" onClick={() => signOut()}>
-      <FaIcon icon={faArrowRightFromBracket} className="exit" />
+      <FaIcon icon={faArrowRightFromBracket} />
     </button>
   )
 }

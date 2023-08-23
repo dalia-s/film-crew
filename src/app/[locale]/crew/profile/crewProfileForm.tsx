@@ -1,28 +1,27 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { useForm, SubmitHandler, FieldValues } from 'react-hook-form'
-import { useUser } from '@clerk/nextjs'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea, DateRangePicker, SingleSelect } from '@/components/forms'
 import { getProfessionSingleSelectOptions, getExperienceSingleSelectOptions } from '@/utils/consts'
+import { saveUserDetails } from '@/utils/userService'
+import { getUserDetailsFromFormFields } from '@/utils/helpers'
+import { UserDetails, FormFields } from '@/types/types'
 
-export default function CrewProfileForm() {
+type Props = {
+  userDetails: UserDetails
+}
+
+export default function CrewProfileForm({ userDetails }: Props) {
   const t = useTranslations('Forms')
   const tso = useTranslations('SelectOptions')
   const professionSingleSelectOptions = getProfessionSingleSelectOptions(tso)
   const experienceSingleSelectOptions = getExperienceSingleSelectOptions(tso)
 
-  const { user } = useUser() // need to get ALL user data if user exist, if not, use the name only, from auth probably in BE
-
   const defaultValues = {
-    firstName: user?.firstName || '',
-    lastName: user?.lastName || '',
-    intro: '',
-    profession: '',
-    hourlyRate: null,
-    experienceYears: '',
-    availability: [],
-    contactNo: '',
+    ...userDetails,
+    ...userDetails.qualifications,
+    ...userDetails.currentProject,
   }
 
   const {
@@ -30,15 +29,21 @@ export default function CrewProfileForm() {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<FieldValues>({
+  } = useForm<FormFields>({
     values: defaultValues,
     resetOptions: {
       keepDirtyValues: true,
     },
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    try {
+      const details = getUserDetailsFromFormFields(data)
+      await saveUserDetails(details)
+      // TODO: show success message
+    } catch (e) {
+      // TODO: show error message
+    }
   }
 
   return (
@@ -109,7 +114,7 @@ export default function CrewProfileForm() {
             />
             <TextInput
               register={register}
-              registerOptions={{ pattern: /^[+]?[0-9\s-]{7,}$/ }}
+              registerOptions={{ required: true, pattern: /^[+]?[0-9\s-]{7,}$/ }}
               label={t('profileForm.contactNo')}
               name="contactNo"
               error={!!errors.contactNo}

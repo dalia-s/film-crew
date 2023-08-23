@@ -1,13 +1,4 @@
-export type CrewMember = {
-  id: number
-  name: string
-  intro: string
-  profession: string
-  experienceYears: string
-  hourlyRate: number
-  availability: string
-  contactNumber: string
-}
+import { CrewMember } from '@/types/types'
 
 export const dummyData: CrewMember[] = [
   {

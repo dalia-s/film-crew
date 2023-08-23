@@ -1,8 +1,11 @@
 import 'react-datepicker/dist/react-datepicker.css'
 import '@/styles/normalize.css'
 import '@/styles/global.scss'
-import { Children } from '@/types/pageTypes'
 
-export default function RootLayout({ children }: Children) {
+type Props = {
+  children: React.ReactNode
+}
+
+export default function RootLayout({ children }: Props) {
   return children
 }

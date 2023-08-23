@@ -4,14 +4,14 @@ import { useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useFilterParamUpdate, useFilterState } from '@/utils/customHooks'
 
-type TextInputProps = {
+type Props = {
   label: string
   filterParam: string
   placeholder?: string
   type?: 'text' | 'number'
 }
 
-export default function TextInput({ label, filterParam, placeholder, type = 'text' }: TextInputProps) {
+export default function TextInput({ label, filterParam, placeholder, type = 'text' }: Props) {
   const updateParams = useFilterParamUpdate(filterParam)
   const searchParams = useSearchParams()
 

@@ -4,13 +4,13 @@ import { ChangeEvent, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useFilterParamUpdate, useFilterState } from '@/utils/customHooks'
 
-type SelectProps = {
+type Props = {
   label: string
   filterParam: string
   selectOptions: { name: string; value: string }[]
 }
 
-export default function MultiSelect({ label, filterParam, selectOptions }: SelectProps) {
+export default function MultiSelect({ label, filterParam, selectOptions }: Props) {
   const updateParams = useFilterParamUpdate(filterParam)
   const searchParams = useSearchParams()
 

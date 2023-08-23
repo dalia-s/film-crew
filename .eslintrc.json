@@ -6,13 +6,11 @@
   "rules": {
     "no-console": ["warn"],
     "@typescript-eslint/semi": ["error", "never"],
-    "import/extensions": "off",
-    "react/react-in-jsx-scope": "off",
-    // "react/no-array-index-key": "off", // I'll do my best to avoid it :)
-    "react/require-default-props": "off",
     "react/jsx-props-no-spreading": ["error", { "html": "ignore" }],
-    "jsx-a11y/label-has-associated-control": "off", // need to revisit later
-    "arrow-body-style": "off", // need to revisit later
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
     "react-hooks/exhaustive-deps": "warn"
   },
   "plugins": ["prettier"],

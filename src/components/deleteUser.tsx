@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useClerk } from '@clerk/clerk-react'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import FaIcon from '@/components/icon'
+import { deleteUser } from '@/utils/userService'
 
 export default function Page() {
   const { signOut } = useClerk()
@@ -11,11 +12,11 @@ export default function Page() {
   const t = useTranslations('Forms.deleteUser')
 
   const onDelete = async () => {
-    const resp = await fetch('/api/user', {
-      method: 'DELETE',
-    })
-    if (resp.ok) {
+    try {
+      await deleteUser()
       signOut()
+    } catch (e) {
+      // TODO: show error message
     }
   }
 

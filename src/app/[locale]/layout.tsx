@@ -3,7 +3,6 @@ import { Roboto } from 'next/font/google'
 import { useLocale } from 'next-intl'
 import { ClerkProvider } from '@clerk/nextjs'
 import Header from 'app/[locale]/(header)/header'
-import { LayoutProps } from '@/types/pageTypes'
 import ltLocalisation from '../../messages/ltAuthLocale'
 
 const roboto = Roboto({
@@ -16,7 +15,14 @@ export const metadata = {
   title: 'FilmCrew',
 }
 
-export default async function LocaleLayout({ params, children }: LayoutProps) {
+type Props = {
+  children: React.ReactNode
+  params: {
+    locale: string
+  }
+}
+
+export default async function LocaleLayout({ params, children }: Props) {
   const locale = useLocale()
   const localization = locale === 'lt' ? ltLocalisation : {}
 

@@ -3,11 +3,12 @@ import { useState } from 'react'
 import { Controller, Control, RegisterOptions } from 'react-hook-form'
 import DatePicker from 'react-datepicker'
 import ErrorMessage from '@/components/forms/formComponents'
+import { FormFields, FormFieldKeys } from '@/types/types'
 
-type DatePickerProps = {
-  control: Control
+type Props = {
+  control: Control<FormFields>
   registerOptions?: RegisterOptions
-  name: string
+  name: FormFieldKeys
   label: string
   error?: boolean
   errorMessage?: string
@@ -20,7 +21,7 @@ export default function DateRangePicker({
   registerOptions,
   error = false,
   errorMessage = '',
-}: DatePickerProps) {
+}: Props) {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null])
   const [startDate, endDate] = dateRange
   const className = error ? 'form-item center error' : 'form-item center'

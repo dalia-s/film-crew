@@ -1,11 +1,12 @@
 import { Controller, Control, RegisterOptions } from 'react-hook-form'
 import DatePicker from 'react-datepicker'
 import ErrorMessage from '@/components/forms/formComponents'
+import { FormFields, FormFieldKeys } from '@/types/types'
 
-type DatePickerProps = {
-  control: Control
+type Props = {
+  control: Control<FormFields>
   registerOptions?: RegisterOptions
-  name: string
+  name: FormFieldKeys
   label: string
   dateFormat?: string
   error?: boolean
@@ -24,7 +25,7 @@ export default function DatePickerInput({
   dateFormat = 'yyyy-MM-dd',
   placeholder = 'YYYY-MM-DD',
   isClearable = false,
-}: DatePickerProps) {
+}: Props) {
   const className = error ? 'form-item error' : 'form-item'
   return (
     <div className={className}>
@@ -38,7 +39,7 @@ export default function DatePickerInput({
             id={name}
             onChange={onChange}
             onBlur={onBlur}
-            selected={value}
+            selected={value as Date | null}
             dateFormat={dateFormat}
             placeholderText={placeholder}
             isClearable={isClearable}

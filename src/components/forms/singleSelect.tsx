@@ -1,12 +1,13 @@
-import { UseFormRegister, RegisterOptions, FieldValues } from 'react-hook-form'
+import { UseFormRegister, RegisterOptions } from 'react-hook-form'
 import ErrorMessage from '@/components/forms/formComponents'
+import { FormFields, FormFieldKeys } from '@/types/types'
 
-type SelectProps = {
-  register: UseFormRegister<FieldValues>
-  registerOptions?: RegisterOptions
+type Props = {
+  register: UseFormRegister<FormFields>
+  registerOptions: RegisterOptions
   selectOptions: { name: string; value: string }[]
   label: string
-  name: string
+  name: FormFieldKeys
   error?: boolean
   errorMessage?: string
 }
@@ -20,7 +21,7 @@ export default function SingleSelect({
   error = false,
   errorMessage = '',
   ...rest
-}: SelectProps) {
+}: Props) {
   const className = error ? 'error' : ''
   return (
     <div className="form-item">

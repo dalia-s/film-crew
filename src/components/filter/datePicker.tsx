@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker'
 import { updateQueryParam } from '@/utils/helpers'
 import { useFilterState } from '@/utils/customHooks'
 
-type DatePickerProps = {
+type Props = {
   label: string
   filterParam: string
   dateFormat?: string
@@ -19,7 +19,7 @@ export default function DatePickerInput({
   dateFormat = 'yyyy-MM-dd',
   placeholder = 'YYYY-MM-DD',
   isClearable = false,
-}: DatePickerProps) {
+}: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()

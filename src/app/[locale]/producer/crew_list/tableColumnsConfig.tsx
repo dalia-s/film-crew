@@ -1,5 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import { CrewMember } from '@/utils/dummyData'
+import { CrewMember } from '@/types/types'
 
 export function getTableColumns(t: (key: any) => string) {
   const columnHelper = createColumnHelper<CrewMember>()

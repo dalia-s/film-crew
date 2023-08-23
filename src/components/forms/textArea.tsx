@@ -1,11 +1,12 @@
-import { UseFormRegister, RegisterOptions, FieldValues } from 'react-hook-form'
+import { UseFormRegister, RegisterOptions } from 'react-hook-form'
 import ErrorMessage from '@/components/forms/formComponents'
+import { FormFields, FormFieldKeys } from '@/types/types'
 
-type TextInputProps = {
-  register: UseFormRegister<FieldValues>
+type Props = {
+  register: UseFormRegister<FormFields>
   registerOptions?: RegisterOptions
   label: string
-  name: string
+  name: FormFieldKeys
   error?: boolean
   errorMessage?: string
   placeholder?: string
@@ -19,7 +20,7 @@ export default function TextInput({
   error = false,
   errorMessage = '',
   ...rest
-}: TextInputProps) {
+}: Props) {
   const className = error ? 'error' : ''
   return (
     <div className="form-item">

@@ -1,5 +1,6 @@
 import { ReadonlyURLSearchParams } from 'next/navigation'
 import { pageSearchParams } from './consts'
+import { FormFields, UserDetails } from '@/types/types'
 
 export function updateQueryParam(searchParams: ReadonlyURLSearchParams, name: string, value: string): string {
   const params = new URLSearchParams(Array.from(searchParams.entries()))
@@ -14,4 +15,39 @@ export function updateQueryParam(searchParams: ReadonlyURLSearchParams, name: st
 
   return params.toString()
 }
-export default updateQueryParam
+
+export function getUserDetailsFromFormFields(formFields: FormFields): UserDetails {
+  const {
+    firstName,
+    lastName,
+    intro,
+    contactNo,
+    availability,
+    profession,
+    experienceYears,
+    hourlyRate,
+    projectName,
+    projectDescription,
+    projectStartDate,
+    projectEndDate,
+  } = formFields
+
+  return {
+    firstName,
+    lastName,
+    intro,
+    contactNo,
+    availability,
+    qualifications: {
+      profession,
+      experienceYears,
+      hourlyRate,
+    },
+    currentProject: {
+      projectName,
+      projectDescription,
+      projectStartDate,
+      projectEndDate,
+    },
+  }
+}

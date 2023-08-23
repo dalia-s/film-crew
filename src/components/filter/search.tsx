@@ -5,12 +5,12 @@ import { useSearchParams } from 'next/navigation'
 import { useFilterParamUpdate } from '@/utils/customHooks'
 import { crewListParams } from '@/utils/consts'
 
-type SearchProps = {
+type Props = {
   infoText: string
   placeholderText: string
 }
 
-export default function Search({ infoText, placeholderText }: SearchProps) {
+export default function Search({ infoText, placeholderText }: Props) {
   const updateParams = useFilterParamUpdate(crewListParams.search)
   const searchParams = useSearchParams()
 

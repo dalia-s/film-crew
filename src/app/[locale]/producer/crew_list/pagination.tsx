@@ -1,8 +1,12 @@
 import { useTranslations } from 'next-intl'
 import { Table } from '@tanstack/react-table'
-import { CrewMember } from '@/utils/dummyData'
+import { CrewMember } from '@/types/types'
 
-export default function Pagination({ table }: { table: Table<CrewMember> }) {
+type Props = {
+  table: Table<CrewMember>
+}
+
+export default function Pagination({ table }: Props) {
   const t = useTranslations('Table.pagination')
 
   return (

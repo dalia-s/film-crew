@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl'
 import { faTrowelBricks } from '@fortawesome/free-solid-svg-icons'
 import FaIcon from '@/components/icon'
 
-export default function Component() {
+export default function UnderConstruction() {
   const t = useTranslations('Misc')
 
   return (

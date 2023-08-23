@@ -9,22 +9,22 @@ import {
   getPaginationRowModel,
   getExpandedRowModel,
 } from '@tanstack/react-table'
-import { dummyData } from '@/utils/dummyData'
+import { CrewMember } from '@/types/types'
 import Pagination from './pagination'
 import { getTableColumns } from './tableColumnsConfig'
 
-export default function Table() {
+type Props = {
+  data: CrewMember[]
+}
+
+export default function Table({ data }: Props) {
   const headerT = useTranslations('Table.crewListHeaders')
 
   const columns = getTableColumns(headerT)
 
   const table = useReactTable({
-    data: dummyData,
+    data,
     columns,
-    defaultColumn: {
-      minSize: 100,
-      size: 50,
-    },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getExpandedRowModel: getExpandedRowModel(),

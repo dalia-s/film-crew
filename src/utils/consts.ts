@@ -1,4 +1,4 @@
-export type UserRoleType = 'producer' | 'crew'
+import { UserDetails } from '@/types/types'
 
 export const userRole = {
   producer: 'producer',
@@ -54,4 +54,23 @@ export const experienceOptions = [
 
 export function getExperienceSingleSelectOptions(t: (key: any) => string) {
   return [{ name: t('select'), value: '' }, ...experienceOptions]
+}
+
+export const defaultUserData: UserDetails = {
+  firstName: '',
+  lastName: '',
+  intro: '',
+  contactNo: '',
+  availability: [],
+  qualifications: {
+    profession: '',
+    experienceYears: '',
+    hourlyRate: '',
+  },
+  currentProject: {
+    projectName: '',
+    projectDescription: '',
+    projectStartDate: null,
+    projectEndDate: null,
+  },
 }
