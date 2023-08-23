@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 import { Roboto } from 'next/font/google'
-import { useLocale } from 'next-intl'
+import { useLocale, useMessages, NextIntlClientProvider } from 'next-intl'
 import { ClerkProvider } from '@clerk/nextjs'
+import pick from 'lodash/pick'
 import Header from 'app/[locale]/(header)/header'
 import ltLocalisation from '../../messages/ltAuthLocale'
 
@@ -22,7 +23,8 @@ type Props = {
   }
 }
 
-export default async function LocaleLayout({ params, children }: Props) {
+export default function LocaleLayout({ params, children }: Props) {
+  const messages = useMessages()
   const locale = useLocale()
   const localization = locale === 'lt' ? ltLocalisation : {}
 
@@ -35,7 +37,9 @@ export default async function LocaleLayout({ params, children }: Props) {
       <html lang={params.locale} className={roboto.className}>
         <body>
           <Header />
-          <main>{children}</main>
+          <NextIntlClientProvider locale={locale} messages={pick(messages || {}, 'Error')}>
+            <main>{children}</main>
+          </NextIntlClientProvider>
         </body>
       </html>
     </ClerkProvider>

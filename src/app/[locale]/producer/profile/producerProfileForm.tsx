@@ -109,7 +109,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
             />
           </div>
         </div>
-        <button type="submit" className="button primary submit-button">
+        <button type="submit" className="button submit-button">
           {t('submit')}
         </button>
       </form>

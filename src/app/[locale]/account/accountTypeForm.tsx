@@ -45,7 +45,7 @@ export default function AccountTypeForm() {
           </label>
         </div>
         <ErrorMessage show={!!errors.role} message={t('accountForm.errorMessage')} />
-        <button type="submit" className="button primary submit-button">
+        <button type="submit" className="button submit-button">
           {t('submit')}
         </button>
       </form>

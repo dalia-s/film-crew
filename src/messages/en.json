@@ -96,5 +96,9 @@
   },
   "Misc": {
     "underConstruction": "UNDER CONSTRUCTION"
+  },
+  "Error": {
+    "generalError": "Oops... Something went wrong!",
+    "tryAgain": "Try again"
   }
 }

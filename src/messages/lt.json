@@ -96,5 +96,9 @@
   },
   "Misc": {
     "underConstruction": "VYKSTA DARBAI"
+  },
+  "Error": {
+    "generalError": "Atsiprašome, įvyko klaida!",
+    "tryAgain": "Bandykite dar kartą"
   }
 }
