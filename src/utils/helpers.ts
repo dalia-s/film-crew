@@ -20,7 +20,7 @@ export function getUserDetailsFromFormFields(formFields: FormFields): UserDetail
   const {
     firstName,
     lastName,
-    intro,
+    about,
     contactNo,
     availability,
     profession,
@@ -35,10 +35,10 @@ export function getUserDetailsFromFormFields(formFields: FormFields): UserDetail
   return {
     firstName,
     lastName,
-    intro,
+    about,
     contactNo,
     availability,
-    credentials: {
+    profile: {
       profession,
       experienceYears,
       hourlyRate,
