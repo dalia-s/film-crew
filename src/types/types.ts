@@ -1,13 +1,13 @@
-export type UserRole = 'producer' | 'crew'
+export type UserRole = 'producer' | 'crew' | 'admin'
 
 export type Project = {
   projectName: string
-  projectDescription: string
+  projectDescription: string | null
   projectStartDate: Date | null
   projectEndDate: Date | null
 }
 
-export type Qualifications = {
+export type Profile = {
   profession: string
   experienceYears: string
   hourlyRate: string
@@ -16,16 +16,16 @@ export type Qualifications = {
 export type UserDetails = {
   firstName: string
   lastName: string
-  intro: string
+  about: string | null
   contactNo: string
   availability: string[]
-  qualifications: Qualifications
+  profile: Profile
   currentProject: Project
 }
 
-export type FormFields = UserDetails & Project & Qualifications
+export type FormFields = UserDetails & Project & Profile
 
-export type FormFieldKeys = keyof UserDetails | keyof Qualifications | keyof Project
+export type FormFieldKeys = keyof UserDetails | keyof Profile | keyof Project
 
 export type CrewMember = {
   id: number

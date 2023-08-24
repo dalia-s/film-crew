@@ -1,8 +1,16 @@
+import { Role } from '@prisma/client'
 import { UserDetails } from '@/types/types'
 
 export const userRole = {
   producer: 'producer',
   crew: 'crew',
+  admin: 'admin',
+} as const
+
+export const roleToPrismaEnumMap = {
+  [userRole.producer]: Role.PRODUCER,
+  [userRole.crew]: Role.CREW,
+  [userRole.admin]: Role.ADMIN,
 } as const
 
 export const pageSearchParams = {
@@ -59,10 +67,10 @@ export function getExperienceSingleSelectOptions(t: (key: any) => string) {
 export const defaultUserData: UserDetails = {
   firstName: '',
   lastName: '',
-  intro: '',
+  about: '',
   contactNo: '',
   availability: [],
-  qualifications: {
+  profile: {
     profession: '',
     experienceYears: '',
     hourlyRate: '',

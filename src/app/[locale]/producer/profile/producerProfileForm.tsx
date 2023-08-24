@@ -16,7 +16,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
 
   const defaultValues = {
     ...userDetails,
-    ...userDetails.qualifications,
+    ...userDetails.profile,
     ...userDetails.currentProject,
   }
 
@@ -73,7 +73,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
           register={register}
           registerOptions={{ required: false }}
           label={t('profileForm.intro')}
-          name="intro"
+          name="about"
           placeholder={t('profileForm.introPlh')}
         />
         <TextInput

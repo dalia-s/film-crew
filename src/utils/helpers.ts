@@ -38,7 +38,7 @@ export function getUserDetailsFromFormFields(formFields: FormFields): UserDetail
     intro,
     contactNo,
     availability,
-    qualifications: {
+    credentials: {
       profession,
       experienceYears,
       hourlyRate,
