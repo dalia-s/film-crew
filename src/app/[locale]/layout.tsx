@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Roboto } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import { useLocale, useMessages, NextIntlClientProvider } from 'next-intl'
 import { ClerkProvider } from '@clerk/nextjs'
 import pick from 'lodash/pick'
@@ -38,7 +39,10 @@ export default function LocaleLayout({ params, children }: Props) {
         <body>
           <Header />
           <NextIntlClientProvider locale={locale} messages={pick(messages || {}, 'Error')}>
-            <main>{children}</main>
+            <main>
+              {children}
+              <Analytics />
+            </main>
           </NextIntlClientProvider>
         </body>
       </html>

@@ -16,7 +16,7 @@ export default async function Header() {
   return (
     <header>
       <Link href="/" className="logo-link">
-        <Image src={logo} alt="logo" width="30" />
+        <Image src={logo} alt="logo" width="30" priority />
         <span>FilmCrew</span>
       </Link>
       <div className="header-content">
