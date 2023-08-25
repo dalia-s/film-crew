@@ -9,7 +9,7 @@ type UserDetails = {
   contactNo: string
 }
 
-type Project = {
+export type Project = {
   projectId: number | undefined
   projectName: string
   projectDescription: string | null
