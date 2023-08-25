@@ -74,7 +74,8 @@
       "experienceYears": "Patirtis",
       "hourlyRate": "Val. įkainis",
       "availability": "Prieinamos dienos",
-      "contactNumber": "Telefono numeris"
+      "contactNumber": "Telefono numeris",
+      "year": "m"
     }
   },
   "SelectOptions": {

@@ -80,11 +80,6 @@ export async function PUT(request: Request) {
     await prisma.user.update({
       where: { clerkId: userId },
       data: { ...formatRequestData(data) },
-      include: {
-        profile: true,
-        projects: true,
-        availability: true,
-      },
     })
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 })

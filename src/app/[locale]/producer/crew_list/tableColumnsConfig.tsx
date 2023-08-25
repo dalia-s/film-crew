@@ -1,11 +1,23 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import { CrewMember } from '@/types/types'
+import { CrewListItem } from '@/types/types'
+import { getProfessionOptions } from '@/utils/consts'
 
-export function getTableColumns(t: (key: any) => string) {
-  const columnHelper = createColumnHelper<CrewMember>()
+type Translations = {
+  ht: (key: any) => string
+  ot: (key: any) => string
+}
+
+function getProfessionTranslation(t: (key: any) => string, slug: string | null): string {
+  const professionOptions = getProfessionOptions(t)
+  const prof = professionOptions.find((p) => p.value === slug)
+  return prof?.name || ''
+}
+
+export function getTableColumns({ ht, ot }: Translations) {
+  const columnHelper = createColumnHelper<CrewListItem>()
 
   const columns = [
-    columnHelper.accessor('id', {
+    columnHelper.accessor('clerkId', {
       header: ({ table }) => (
         <button type="button" className="row-expand header" onClick={table.getToggleAllRowsExpandedHandler()}>
           {table.getIsAllRowsExpanded() ? <>&#9662;</> : <>&#9656;</>}
@@ -19,27 +31,27 @@ export function getTableColumns(t: (key: any) => string) {
       meta: { className: 'test-class' },
     }),
     columnHelper.accessor('name', {
-      header: t('name'),
+      header: ht('name'),
       cell: (props) => props.getValue(),
     }),
     columnHelper.accessor('profession', {
-      header: t('profession'),
-      cell: (props) => props.getValue(),
+      header: ht('profession'),
+      cell: (props) => getProfessionTranslation(ot, props.getValue()),
     }),
     columnHelper.accessor('experienceYears', {
-      header: t('experienceYears'),
-      cell: (props) => <span>{props.getValue()} y</span>,
+      header: ht('experienceYears'),
+      cell: (props) => (props.getValue() ? `${props.getValue()} ${ht('year')}` : ''),
     }),
     columnHelper.accessor('hourlyRate', {
-      header: t('hourlyRate'),
-      cell: (props) => <span>{props.getValue()} €</span>,
+      header: ht('hourlyRate'),
+      cell: (props) => (props.getValue() ? `${props.getValue()} €` : ''),
     }),
     columnHelper.accessor('availability', {
-      header: t('availability'),
+      header: ht('availability'),
       cell: (props) => props.getValue(),
     }),
-    columnHelper.accessor('contactNumber', {
-      header: t('contactNumber'),
+    columnHelper.accessor('contactNo', {
+      header: ht('contactNumber'),
       cell: (props) => props.getValue(),
     }),
   ]

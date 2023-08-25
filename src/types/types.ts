@@ -2,16 +2,14 @@ export type UserRole = 'producer' | 'crew' | 'admin'
 
 export type DateRange = [Date | null, Date | null] | []
 
-export type UserDetails = {
+type UserDetails = {
   firstName: string
   lastName: string
   about: string | null
   contactNo: string
-  availability: DateRange
-  availabilityId: number | undefined
 }
 
-export type Project = {
+type Project = {
   projectId: number | undefined
   projectName: string
   projectDescription: string | null
@@ -19,23 +17,30 @@ export type Project = {
   projectEndDate: Date | null
 }
 
-export type Profile = {
-  profession: string
-  experienceYears: string
-  hourlyRate: string
+type Profile = {
+  profession: string | null
+  experienceYears: string | null
+  hourlyRate: string | null
 }
 
-export type FormFields = UserDetails & Project & Profile
+type Availability = {
+  availability: DateRange
+  availabilityId: number | undefined
+}
+
+export type FormFields = Availability & UserDetails & Project & Profile
 
 export type FormFieldKeys = keyof FormFields
 
-export type CrewMember = {
-  id: number
+export type DBAvailability = {
+  availableFrom: Date
+  availableTo: Date
+}
+
+export type CrewListItem = Profile & {
+  clerkId: string
   name: string
-  intro: string
-  profession: string
-  experienceYears: number
-  hourlyRate: number
+  about: string
+  contactNo: string
   availability: string
-  contactNumber: string
 }

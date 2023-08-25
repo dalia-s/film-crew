@@ -74,7 +74,8 @@
       "experienceYears": "Experience",
       "hourlyRate": "Hourly rate",
       "availability": "Dates available",
-      "contactNumber": "Contact number"
+      "contactNumber": "Contact number",
+      "year": "y"
     }
   },
   "SelectOptions": {
