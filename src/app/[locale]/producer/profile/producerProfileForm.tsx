@@ -1,24 +1,19 @@
 'use client'
 
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { TextInput, TextArea, DatePicker } from '@/components/forms'
+import { TextInput, TextArea, DatePicker, SubmitButton } from '@/components/forms'
 import { saveUserDetails } from '@/utils/userService'
-import { getUserDetailsFromFormFields } from '@/utils/helpers'
-import { UserDetails, FormFields } from '@/types/types'
+import { FormFields } from '@/types/types'
 
 type Props = {
-  userDetails: UserDetails
+  userDetails: FormFields
 }
 
 export default function ProducerProfileForm({ userDetails }: Props) {
+  const [saving, setSaving] = useState(false)
   const t = useTranslations('Forms')
-
-  const defaultValues = {
-    ...userDetails,
-    ...userDetails.profile,
-    ...userDetails.currentProject,
-  }
 
   const {
     register,
@@ -26,7 +21,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
     control,
     formState: { errors },
   } = useForm<FormFields>({
-    values: defaultValues,
+    values: userDetails,
     resetOptions: {
       keepDirtyValues: true,
     },
@@ -34,11 +29,13 @@ export default function ProducerProfileForm({ userDetails }: Props) {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const details = getUserDetailsFromFormFields(data)
-      await saveUserDetails(details)
+      setSaving(true)
+      await saveUserDetails(data)
       // TODO: show success message
     } catch (e) {
       // TODO: show error message
+    } finally {
+      setSaving(false)
     }
   }
 
@@ -109,9 +106,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
             />
           </div>
         </div>
-        <button type="submit" className="button submit-button">
-          {t('submit')}
-        </button>
+        <SubmitButton text={t('submit')} saving={saving} />
       </form>
     </div>
   )

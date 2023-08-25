@@ -1,5 +1,4 @@
 import { Role } from '@prisma/client'
-import { UserDetails } from '@/types/types'
 
 export const userRole = {
   producer: 'producer',
@@ -62,23 +61,4 @@ export const experienceOptions = [
 
 export function getExperienceSingleSelectOptions(t: (key: any) => string) {
   return [{ name: t('select'), value: '' }, ...experienceOptions]
-}
-
-export const defaultUserData: UserDetails = {
-  firstName: '',
-  lastName: '',
-  about: '',
-  contactNo: '',
-  availability: [],
-  profile: {
-    profession: '',
-    experienceYears: '',
-    hourlyRate: '',
-  },
-  currentProject: {
-    projectName: '',
-    projectDescription: '',
-    projectStartDate: null,
-    projectEndDate: null,
-  },
 }

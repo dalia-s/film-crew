@@ -1,6 +1,6 @@
 import { Controller, Control, RegisterOptions } from 'react-hook-form'
 import DatePicker from 'react-datepicker'
-import ErrorMessage from '@/components/forms/formComponents'
+import { ErrorMessage } from '@/components/forms'
 import { FormFields, FormFieldKeys } from '@/types/types'
 
 type Props = {
@@ -43,6 +43,7 @@ export default function DatePickerInput({
             dateFormat={dateFormat}
             placeholderText={placeholder}
             isClearable={isClearable}
+            autoComplete="off"
           />
         )}
       />

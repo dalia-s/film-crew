@@ -1,9 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import ErrorMessage from '@/components/forms/formComponents'
+import { ErrorMessage, SubmitButton } from '@/components/forms'
 import { getUserRedirectPath, createUser } from '@/utils/userService'
 import { UserRole } from '@/types/types'
 
@@ -12,6 +13,7 @@ type Inputs = {
 }
 
 export default function AccountTypeForm() {
+  const [saving, setSaving] = useState(false)
   const t = useTranslations('Forms')
   const router = useRouter()
 
@@ -23,10 +25,13 @@ export default function AccountTypeForm() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
+      setSaving(true)
       await createUser(data)
       router.push(getUserRedirectPath(data.role))
     } catch (e) {
       // TODO: show error message
+    } finally {
+      setSaving(false)
     }
   }
 
@@ -45,9 +50,7 @@ export default function AccountTypeForm() {
           </label>
         </div>
         <ErrorMessage show={!!errors.role} message={t('accountForm.errorMessage')} />
-        <button type="submit" className="button submit-button">
-          {t('submit')}
-        </button>
+        <SubmitButton text={t('submit')} saving={saving} />
       </form>
     </div>
   )

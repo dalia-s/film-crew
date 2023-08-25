@@ -11,6 +11,7 @@ export async function POST(request: Request) {
   }
 
   const data: { role: UserRole } = await request.json()
+
   const params = { publicMetadata: data }
   try {
     await clerkClient.users.updateUser(userId, params)
@@ -33,7 +34,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: e.message }, { status: 500 })
   }
 
-  return NextResponse.json({ status: 200 })
+  return NextResponse.json({ status: 201 })
 }
 
 export async function DELETE() {
@@ -41,12 +42,20 @@ export async function DELETE() {
   if (!userId) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
+
+  try {
+    await prisma.user.delete({
+      where: { clerkId: userId },
+    })
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message }, { status: 500 })
+  }
+
   try {
     await clerkClient.users.deleteUser(userId)
-  } catch {
-    return NextResponse.json({ error: 'Clerk API error' }, { status: 500 })
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message }, { status: 500 })
   }
-  // delete current user from DB
 
   return NextResponse.json({ status: 200 })
 }

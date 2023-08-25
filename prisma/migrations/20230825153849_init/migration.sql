@@ -9,8 +9,8 @@ CREATE TABLE "User" (
     "firstName" VARCHAR(32) NOT NULL,
     "lastName" VARCHAR(32) NOT NULL,
     "about" TEXT,
-    "contactNo" VARCHAR(32) NOT NULL,
     "email" VARCHAR(64) NOT NULL,
+    "contactNo" VARCHAR(32) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -20,8 +20,8 @@ CREATE TABLE "User" (
 CREATE TABLE "Profile" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER NOT NULL,
-    "profession" TEXT NOT NULL,
-    "experienceYears" INTEGER NOT NULL,
+    "profession" TEXT,
+    "experienceYears" INTEGER,
     "hourlyRate" DECIMAL(6,2),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -32,7 +32,7 @@ CREATE TABLE "Profile" (
 CREATE TABLE "Project" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER NOT NULL,
-    "projectName" TEXT,
+    "projectName" TEXT NOT NULL,
     "projectDescription" TEXT,
     "projectStartDate" DATE,
     "projectEndDate" DATE,
@@ -56,13 +56,16 @@ CREATE TABLE "Availability" (
 CREATE UNIQUE INDEX "User_clerkId_key" ON "User"("clerkId");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
 
 -- AddForeignKey
-ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Project" ADD CONSTRAINT "Project_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Project" ADD CONSTRAINT "Project_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Availability" ADD CONSTRAINT "Availability_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Availability" ADD CONSTRAINT "Availability_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

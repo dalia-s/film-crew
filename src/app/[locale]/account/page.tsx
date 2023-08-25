@@ -19,8 +19,8 @@ function LocalisedPage() {
   )
 }
 
-export default async function Page() {
-  const role = await getUserRole()
+export default function Page() {
+  const role = getUserRole()
   if (role) {
     redirect(getUserRedirectPath(role))
   }
