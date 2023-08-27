@@ -42,7 +42,7 @@ function getProfileFilter({ profession, experience, minRate, maxRate }: CrewSear
 }
 
 function getAvailabilityFilter({ availableFrom, availableTo }: CrewSearchParams): Prisma.UserWhereInput {
-  const availFrom = availableFrom ? { availableFrom: { gte: new Date(availableFrom) } } : {}
+  const availFrom = availableFrom ? { availableFrom: { lte: new Date(availableFrom) } } : {}
   const availTo = availableTo ? { availableTo: { gte: new Date(availableTo) } } : {}
   return {
     availability: {
