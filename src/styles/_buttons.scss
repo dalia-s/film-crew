@@ -6,7 +6,8 @@ button.button {
   background-color: $textDark;
   text-transform: uppercase;
   cursor: pointer;
-  &:active {
+  &:active,
+  &:disabled {
     opacity: 0.8;
   }
 }
@@ -14,4 +15,8 @@ button.button {
 button.submit-button {
   margin-top: 3em;
   align-self: end;
+  min-width: 7em;
+  svg {
+    color: #ffffff;
+  }
 }

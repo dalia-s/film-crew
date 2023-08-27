@@ -1,28 +1,23 @@
 'use client'
 
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { TextInput, TextArea, DateRangePicker, SingleSelect } from '@/components/forms'
+import { TextInput, TextArea, DateRangePicker, SingleSelect, SubmitButton } from '@/components/forms'
 import { getProfessionSingleSelectOptions, getExperienceSingleSelectOptions } from '@/utils/consts'
 import { saveUserDetails } from '@/utils/userService'
-import { getUserDetailsFromFormFields } from '@/utils/helpers'
-import { UserDetails, FormFields } from '@/types/types'
+import { FormFields } from '@/types/index'
 
 type Props = {
-  userDetails: UserDetails
+  userDetails: FormFields
 }
 
 export default function CrewProfileForm({ userDetails }: Props) {
+  const [saving, setSaving] = useState(false)
   const t = useTranslations('Forms')
   const tso = useTranslations('SelectOptions')
   const professionSingleSelectOptions = getProfessionSingleSelectOptions(tso)
   const experienceSingleSelectOptions = getExperienceSingleSelectOptions(tso)
-
-  const defaultValues = {
-    ...userDetails,
-    ...userDetails.qualifications,
-    ...userDetails.currentProject,
-  }
 
   const {
     register,
@@ -30,7 +25,7 @@ export default function CrewProfileForm({ userDetails }: Props) {
     control,
     formState: { errors },
   } = useForm<FormFields>({
-    values: defaultValues,
+    values: userDetails,
     resetOptions: {
       keepDirtyValues: true,
     },
@@ -38,11 +33,13 @@ export default function CrewProfileForm({ userDetails }: Props) {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const details = getUserDetailsFromFormFields(data)
-      await saveUserDetails(details)
+      setSaving(true)
+      await saveUserDetails(data)
       // TODO: show success message
     } catch (e) {
       // TODO: show error message
+    } finally {
+      setSaving(false)
     }
   }
 
@@ -78,7 +75,7 @@ export default function CrewProfileForm({ userDetails }: Props) {
             register={register}
             registerOptions={{ required: false }}
             label={t('profileForm.intro')}
-            name="intro"
+            name="about"
             placeholder={t('profileForm.introPlh')}
           />
         </div>
@@ -128,14 +125,13 @@ export default function CrewProfileForm({ userDetails }: Props) {
               registerOptions={{ required: true }}
               name="availability"
               label={t('profileForm.availability')}
+              initialValues={userDetails.availability.length ? userDetails.availability : [null, null]}
               error={!!errors.availability}
               errorMessage={t('profileForm.availabilityErrM')}
             />
           </div>
         </div>
-        <button type="submit" className="button submit-button">
-          {t('submit')}
-        </button>
+        <SubmitButton text={t('submit')} saving={saving} />
       </form>
     </div>
   )

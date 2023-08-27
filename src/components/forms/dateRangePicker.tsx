@@ -2,14 +2,15 @@ import { useState } from 'react'
 
 import { Controller, Control, RegisterOptions } from 'react-hook-form'
 import DatePicker from 'react-datepicker'
-import ErrorMessage from '@/components/forms/formComponents'
-import { FormFields, FormFieldKeys } from '@/types/types'
+import { ErrorMessage } from '@/components/forms'
+import { FormFields, FormFieldKeys } from '@/types/index'
 
 type Props = {
   control: Control<FormFields>
   registerOptions?: RegisterOptions
   name: FormFieldKeys
   label: string
+  initialValues: [Date | null, Date | null]
   error?: boolean
   errorMessage?: string
 }
@@ -18,11 +19,12 @@ export default function DateRangePicker({
   control,
   name,
   label,
+  initialValues,
   registerOptions,
   error = false,
   errorMessage = '',
 }: Props) {
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null])
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>(initialValues)
   const [startDate, endDate] = dateRange
   const className = error ? 'form-item center error' : 'form-item center'
 

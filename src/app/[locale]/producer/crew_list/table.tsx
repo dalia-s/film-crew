@@ -9,18 +9,19 @@ import {
   getPaginationRowModel,
   getExpandedRowModel,
 } from '@tanstack/react-table'
-import { CrewMember } from '@/types/types'
+import { CrewListItem } from '@/types/index'
 import Pagination from './pagination'
 import { getTableColumns } from './tableColumnsConfig'
 
 type Props = {
-  data: CrewMember[]
+  data: CrewListItem[]
 }
 
 export default function Table({ data }: Props) {
-  const headerT = useTranslations('Table.crewListHeaders')
+  const ht = useTranslations('Table.crewListHeaders')
+  const ot = useTranslations('SelectOptions')
 
-  const columns = getTableColumns(headerT)
+  const columns = getTableColumns({ ht, ot })
 
   const table = useReactTable({
     data,
@@ -56,7 +57,7 @@ export default function Table({ data }: Props) {
                 <tr>
                   <td aria-label="spacer" className="spacer" />
                   <td colSpan={7} className="intro">
-                    <span>{row.original.intro}</span>
+                    <span>{row.original.about}</span>
                   </td>
                 </tr>
               ) : null}

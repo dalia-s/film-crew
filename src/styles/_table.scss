@@ -1,7 +1,7 @@
 div.table-container {
   @include container;
   margin-top: 2em;
-  min-width: 35em;
+  min-width: 40em;
 }
 
 table {
@@ -79,15 +79,22 @@ div.pagination-container {
     display: flex;
     align-items: center;
     border-left: $border;
-    padding-left: 0.5em;
+    padding-left: 0.6em;
     input {
       border: $border;
       width: 3.5em;
       margin: 0 0.5em;
     }
   }
+  strong.total-row-number {
+    border-left: $border;
+    padding-left: 0.6em;
+    margin-left: 1em;
+    line-height: 1.7em;
+  }
 
   select {
     border: $border;
+    height: 1.7em;
   }
 }

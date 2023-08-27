@@ -4,12 +4,7 @@ import pick from 'lodash/pick'
 import { getUserRole, getUserRedirectPath } from '@/utils/userService'
 import AccountTypeForm from './accountTypeForm'
 
-export default function Page() {
-  const role = getUserRole()
-  if (role) {
-    redirect(getUserRedirectPath(role))
-  }
-
+function LocalisedPage() {
   const loc = useLocale()
   const messages = useMessages()
   const t = useTranslations('AccountTypePage')
@@ -22,4 +17,13 @@ export default function Page() {
       </NextIntlClientProvider>
     </>
   )
+}
+
+export default function Page() {
+  const role = getUserRole()
+  if (role) {
+    redirect(getUserRedirectPath(role))
+  }
+
+  return <LocalisedPage />
 }

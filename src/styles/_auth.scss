@@ -1,4 +1,4 @@
-.sign-in-container {
+div.sign-in-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,11 +17,4 @@
 
 .cl-rootBox {
   margin: 0 auto;
-}
-
-.delete-icon {
-  color: $dangerColor;
-  height: 1em;
-  margin: 0 0.5em;
-  cursor: pointer;
 }

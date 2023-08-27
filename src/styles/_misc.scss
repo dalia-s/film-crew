@@ -21,6 +21,7 @@ div.error-container {
     margin-bottom: 2em;
   }
 }
+
 div.global-error-container {
   margin-top: 5em;
   display: flex;
@@ -52,4 +53,21 @@ div.modal-background {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+div.landing-page-container {
+  h4 {
+    margin-top: 4em;
+  }
+}
+
+div.delete-user-component {
+  svg {
+    height: 1em;
+    margin: 0 0.5em;
+  }
+  .delete-icon {
+    color: $dangerColor;
+    cursor: pointer;
+  }
 }
