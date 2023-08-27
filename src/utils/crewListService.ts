@@ -1,6 +1,6 @@
 import { Role, Prisma } from '@prisma/client'
 import { prisma } from '@/utils/prisma'
-import { CrewListItem, DBAvailability, CrewSearchParams } from '@/types/index'
+import { CrewListItem, DBAvailability, CrewSearchParams, CrewListRawDataItem } from '@/types/index'
 import { experienceOptions } from '@/utils/consts'
 
 function getExperienceStr(exp: number): string {
@@ -62,10 +62,20 @@ function getFilters(searchParams: CrewSearchParams): Prisma.UserWhereInput {
   }
 }
 
+function sortByAvailDate(a: CrewListRawDataItem, b: CrewListRawDataItem) {
+  if (a.availability[0].availableFrom < b.availability[0].availableFrom) {
+    return -1
+  }
+  if (a.availability[0].availableFrom > b.availability[0].availableFrom) {
+    return 1
+  }
+  return 0
+}
+
 export async function getCrewList(searchParams: CrewSearchParams): Promise<CrewListItem[]> {
   const filter = getFilters(searchParams)
 
-  const data = await prisma.user.findMany({
+  const data: CrewListRawDataItem[] = await prisma.user.findMany({
     where: {
       ...filter,
       role: Role.CREW,
@@ -91,6 +101,8 @@ export async function getCrewList(searchParams: CrewSearchParams): Promise<CrewL
       },
     },
   })
+
+  data.sort(sortByAvailDate)
 
   const users: CrewListItem[] = data.map((item) => ({
     clerkId: item.clerkId,

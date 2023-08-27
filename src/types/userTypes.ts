@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client'
 import { crewListParams } from '@/utils/consts'
 
 export type UserRole = 'producer' | 'crew' | 'admin'
@@ -37,6 +38,18 @@ export type FormFieldKeys = keyof FormFields
 export type DBAvailability = {
   availableFrom: Date
   availableTo: Date
+}
+
+type DBProfile = {
+  profession: string | null
+  experienceYears: number | null
+  hourlyRate: Prisma.Decimal | null
+}
+
+export type CrewListRawDataItem = UserDetails & {
+  clerkId: string
+  profile: DBProfile | null
+  availability: DBAvailability[]
 }
 
 export type CrewListItem = Profile & {
