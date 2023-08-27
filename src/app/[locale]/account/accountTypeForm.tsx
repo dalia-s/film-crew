@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ErrorMessage, SubmitButton } from '@/components/forms'
 import { getUserRedirectPath, createUser } from '@/utils/userService'
-import { UserRole } from '@/types/types'
+import { UserRole } from '@/types/index'
 
 type Inputs = {
   role: UserRole

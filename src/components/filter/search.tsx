@@ -33,7 +33,7 @@ export default function Search({ infoText, placeholderText }: Props) {
   return (
     <div className="search-container">
       <div className="search-input-wrapper">
-        <input type="search" placeholder={placeholderText} onChange={onChange} value={inputValue} />
+        <input type="search" id="search" placeholder={placeholderText} onChange={onChange} value={inputValue} />
         <button type="button" onClick={onClear}>
           &#x2715;
         </button>

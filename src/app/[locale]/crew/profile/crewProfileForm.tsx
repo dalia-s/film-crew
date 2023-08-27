@@ -6,7 +6,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea, DateRangePicker, SingleSelect, SubmitButton } from '@/components/forms'
 import { getProfessionSingleSelectOptions, getExperienceSingleSelectOptions } from '@/utils/consts'
 import { saveUserDetails } from '@/utils/userService'
-import { FormFields } from '@/types/types'
+import { FormFields } from '@/types/index'
 
 type Props = {
   userDetails: FormFields

@@ -1,6 +1,6 @@
-import { Role } from '@prisma/client'
+import { Role, Prisma } from '@prisma/client'
 import { prisma } from '@/utils/prisma'
-import { CrewListItem, DBAvailability } from '@/types/types'
+import { CrewListItem, DBAvailability, CrewSearchParams } from '@/types/index'
 import { experienceOptions } from '@/utils/consts'
 
 function getExperienceStr(exp: number): string {
@@ -12,9 +12,64 @@ function formatAvailability(avail: DBAvailability): string {
   return `${avail.availableFrom.toLocaleDateString('lt')} - ${avail.availableTo.toLocaleDateString('lt')}`
 }
 
-export async function getCrewList() {
+function getSearchFilter(search: string | undefined): Prisma.UserWhereInput {
+  if (search) {
+    return {
+      OR: [
+        { firstName: { contains: search, mode: 'insensitive' } },
+        { lastName: { contains: search, mode: 'insensitive' } },
+        { about: { contains: search, mode: 'insensitive' } },
+      ],
+    }
+  }
+  return {}
+}
+
+function getProfileFilter({ profession, experience, minRate, maxRate }: CrewSearchParams): Prisma.UserWhereInput {
+  const prof = profession ? { profession: { in: profession.split(',') } } : {}
+  const exp = experience ? { experienceYears: { in: experience.split(',').map((e) => Number(e)) } } : {}
+  const minR = minRate ? { gte: Number(minRate) } : {}
+  const maxR = maxRate ? { lte: Number(maxRate) } : {}
+  const hRate = { hourlyRate: { ...minR, ...maxR } }
+
+  return {
+    profile: {
+      ...prof,
+      ...exp,
+      ...hRate,
+    },
+  }
+}
+
+function getAvailabilityFilter({ availableFrom, availableTo }: CrewSearchParams): Prisma.UserWhereInput {
+  const availFrom = availableFrom ? { availableFrom: { gte: new Date(availableFrom) } } : {}
+  const availTo = availableTo ? { availableTo: { gte: new Date(availableTo) } } : {}
+  return {
+    availability: {
+      some: {
+        ...availFrom,
+        ...availTo,
+      },
+    },
+  }
+}
+
+function getFilters(searchParams: CrewSearchParams): Prisma.UserWhereInput {
+  return {
+    ...getSearchFilter(searchParams.search),
+    ...getProfileFilter(searchParams),
+    ...getAvailabilityFilter(searchParams),
+  }
+}
+
+export async function getCrewList(searchParams: CrewSearchParams): Promise<CrewListItem[]> {
+  const filter = getFilters(searchParams)
+
   const data = await prisma.user.findMany({
-    where: { role: Role.CREW },
+    where: {
+      ...filter,
+      role: Role.CREW,
+    },
     select: {
       clerkId: true,
       firstName: true,

@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea, DatePicker, SubmitButton } from '@/components/forms'
 import { saveUserDetails } from '@/utils/userService'
-import { FormFields } from '@/types/types'
+import { FormFields } from '@/types/index'
 
 type Props = {
   userDetails: FormFields

@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { Table } from '@tanstack/react-table'
-import { CrewListItem } from '@/types/types'
+import { CrewListItem } from '@/types/index'
 
 type Props = {
   table: Table<CrewListItem>
@@ -56,6 +56,9 @@ export default function Pagination({ table }: Props) {
           </option>
         ))}
       </select>
+      <strong className="total-row-number">
+        {t('total')} {table.getPrePaginationRowModel().rows.length}
+      </strong>
     </div>
   )
 }

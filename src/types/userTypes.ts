@@ -1,3 +1,5 @@
+import { crewListParams } from '@/utils/consts'
+
 export type UserRole = 'producer' | 'crew' | 'admin'
 
 export type DateRange = [Date | null, Date | null] | []
@@ -44,3 +46,5 @@ export type CrewListItem = Profile & {
   contactNo: string
   availability: string
 }
+
+export type CrewSearchParams = typeof crewListParams

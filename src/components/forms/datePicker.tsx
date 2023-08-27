@@ -1,7 +1,7 @@
 import { Controller, Control, RegisterOptions } from 'react-hook-form'
 import DatePicker from 'react-datepicker'
 import { ErrorMessage } from '@/components/forms'
-import { FormFields, FormFieldKeys } from '@/types/types'
+import { FormFields, FormFieldKeys } from '@/types/index'
 
 type Props = {
   control: Control<FormFields>

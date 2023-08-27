@@ -1,4 +1,4 @@
-import { UserRole } from '@/types/types'
+import { UserRole } from '@/types/index'
 
 export async function createUser(data: { role: UserRole }) {
   const body = JSON.stringify(data)

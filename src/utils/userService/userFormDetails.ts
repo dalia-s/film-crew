@@ -1,5 +1,5 @@
 import { auth } from '@clerk/nextjs'
-import { DateRange, FormFields, Project } from '@/types/types'
+import { DateRange, FormFields, Project } from '@/types/index'
 import { prisma } from '@/utils/prisma'
 
 const defaultProject: Project = {

@@ -1,5 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import { CrewListItem } from '@/types/types'
+import { CrewListItem } from '@/types/index'
 import { getProfessionOptions } from '@/utils/consts'
 
 type Translations = {

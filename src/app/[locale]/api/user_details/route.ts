@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs'
 import { prisma } from '@/utils/prisma'
-import { FormFields } from '@/types/types'
+import { FormFields } from '@/types/index'
 
 function formatRequestData(data: FormFields) {
   const profile = {

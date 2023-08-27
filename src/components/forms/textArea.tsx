@@ -1,6 +1,6 @@
 import { UseFormRegister, RegisterOptions } from 'react-hook-form'
 import { ErrorMessage } from '@/components/forms'
-import { FormFields, FormFieldKeys } from '@/types/types'
+import { FormFields, FormFieldKeys } from '@/types/index'
 
 type Props = {
   register: UseFormRegister<FormFields>

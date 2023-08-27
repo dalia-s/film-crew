@@ -9,7 +9,7 @@ import {
   getPaginationRowModel,
   getExpandedRowModel,
 } from '@tanstack/react-table'
-import { CrewListItem } from '@/types/types'
+import { CrewListItem } from '@/types/index'
 import Pagination from './pagination'
 import { getTableColumns } from './tableColumnsConfig'
 

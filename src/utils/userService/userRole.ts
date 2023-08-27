@@ -1,5 +1,5 @@
 import { auth, currentUser } from '@clerk/nextjs'
-import { UserRole } from '@/types/types'
+import { UserRole } from '@/types/index'
 
 export function getUserRole(): UserRole | undefined {
   const { sessionClaims } = auth()

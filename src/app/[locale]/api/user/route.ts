@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { auth, clerkClient } from '@clerk/nextjs'
 import { roleToPrismaEnumMap } from '@/utils/consts'
-import { UserRole } from '@/types/types'
+import { UserRole } from '@/types/index'
 import { prisma } from '@/utils/prisma'
 
 export async function POST(request: Request) {
