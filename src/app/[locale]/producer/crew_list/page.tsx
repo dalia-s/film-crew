@@ -1,9 +1,11 @@
+import { Suspense } from 'react'
 import { useLocale, useMessages, useTranslations, NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash/pick'
 import Filter from './filter'
 import CrewTable from './table'
 import { getCrewList } from '@/utils/crewListService'
 import { CrewSearchParams } from '@/types/index'
+import Loading from '../../loading'
 
 type Props = {
   searchParams: CrewSearchParams
@@ -24,7 +26,9 @@ export default function Page({ searchParams }: Props) {
       <h2>{t('producerSearch')}</h2>
       <Filter />
       <NextIntlClientProvider locale={loc} messages={pick(messages || {}, 'Table', 'SelectOptions')}>
-        <TableWithData searchParams={searchParams} />
+        <Suspense fallback={<Loading />}>
+          <TableWithData searchParams={searchParams} />
+        </Suspense>
       </NextIntlClientProvider>
     </>
   )

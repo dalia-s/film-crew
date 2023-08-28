@@ -37,7 +37,7 @@ table {
   }
 
   tr:hover td {
-    background-color: $backgroundColor;
+    background-color: darken($backgroundColor, 5%);
   }
 
   button.row-expand {
