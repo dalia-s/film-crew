@@ -7,7 +7,7 @@ function formatRequestData(data: FormFields) {
   const profile = {
     profession: data.profession || null,
     experienceYears: data.experienceYears ? Number(data.experienceYears) : null,
-    hourlyRate: data.hourlyRate === '' ? null : Number(data.experienceYears),
+    hourlyRate: data.hourlyRate === '' ? null : Number(data.hourlyRate),
   }
 
   const project = {
