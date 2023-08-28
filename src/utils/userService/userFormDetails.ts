@@ -28,7 +28,7 @@ export async function getUserDetails(): Promise<FormFields> {
 
   const profession = user.profile?.profession || ''
   const experienceYears = user.profile ? String(user.profile?.experienceYears) : ''
-  const hourlyRate = user.profile ? String(user.profile?.experienceYears) : ''
+  const hourlyRate = user.profile ? String(user.profile?.hourlyRate) : ''
   let availabilityId
   let availability: DateRange = []
   if (user.availability.length) {
