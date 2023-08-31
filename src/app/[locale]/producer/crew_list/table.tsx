@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState, useRef, useTransition } from 'react'
 import { useTranslations } from 'next-intl'
 import {
   flexRender,
@@ -9,17 +9,43 @@ import {
   getPaginationRowModel,
   getExpandedRowModel,
 } from '@tanstack/react-table'
-import { CrewListItem } from '@/types/index'
+import { CrewListItem, CrewSearchParams } from '@/types/index'
+import { getCrewList } from '@/utils/crewListService'
 import Pagination from './pagination'
 import { getTableColumns } from './tableColumnsConfig'
+import Loading from '../../loading'
 
 type Props = {
-  data: CrewListItem[]
+  searchParams: CrewSearchParams
 }
 
-export default function Table({ data }: Props) {
+export default function Table({ searchParams }: Props) {
+  const initialRender = useRef(true)
+  const [data, setData] = useState<CrewListItem[]>([])
+  const [isPending, startTransition] = useTransition()
   const ht = useTranslations('Table.crewListHeaders')
   const ot = useTranslations('SelectOptions')
+
+  useEffect(() => {
+    let mounted = true
+
+    async function getData() {
+      const crewData = await getCrewList(searchParams)
+      if (mounted) {
+        setData(crewData)
+      }
+    }
+
+    if (initialRender.current) {
+      getData()
+      initialRender.current = false
+    } else {
+      startTransition(() => getData())
+    }
+    return () => {
+      mounted = false
+    }
+  }, [searchParams])
 
   const columns = getTableColumns({ ht, ot })
 
@@ -31,8 +57,14 @@ export default function Table({ data }: Props) {
     getExpandedRowModel: getExpandedRowModel(),
   })
 
+  if (initialRender.current) {
+    return <Loading />
+  }
+
+  const className = isPending ? 'table-container loading' : 'table-container'
+
   return (
-    <div className="table-container">
+    <div className={className}>
       <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
