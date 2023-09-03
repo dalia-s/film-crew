@@ -101,6 +101,7 @@
   },
   "Error": {
     "generalError": "Oops... Something went wrong!",
-    "tryAgain": "Try again"
+    "tryAgain": "Try again",
+    "back": "Back"
   }
 }

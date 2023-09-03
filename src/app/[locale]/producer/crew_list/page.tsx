@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { useLocale, useMessages, useTranslations, NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash/pick'
 import Filter from './filter'
@@ -16,7 +17,9 @@ export default function Page({ searchParams }: Props) {
   return (
     <>
       <h2>{t('producerSearch')}</h2>
-      <Filter />
+      <Suspense fallback={null}>
+        <Filter />
+      </Suspense>
       <NextIntlClientProvider locale={loc} messages={pick(messages || {}, 'Table', 'SelectOptions')}>
         <CrewTable searchParams={searchParams} />
       </NextIntlClientProvider>

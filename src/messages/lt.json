@@ -101,6 +101,7 @@
   },
   "Error": {
     "generalError": "Atsiprašome, įvyko klaida!",
-    "tryAgain": "Bandykite dar kartą"
+    "tryAgain": "Bandykite dar kartą",
+    "back": "Atgal"
   }
 }

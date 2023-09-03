@@ -33,10 +33,11 @@ div.global-error-container {
     margin-bottom: 3em;
   }
   button {
-    width: 5em;
-    font-size: 1.2em;
+    min-width: 6em;
+    max-height: 2em;
     svg {
       color: #ffffff;
+      height: 1.2em;
     }
   }
 }
