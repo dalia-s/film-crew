@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea, DateRangePicker, SingleSelect, SubmitButton } from '@/components/forms'
@@ -13,6 +14,7 @@ type Props = {
 }
 
 export default function CrewProfileForm({ userDetails }: Props) {
+  const router = useRouter()
   const [saving, setSaving] = useState(false)
   const t = useTranslations('Forms')
   const tso = useTranslations('SelectOptions')
@@ -35,6 +37,7 @@ export default function CrewProfileForm({ userDetails }: Props) {
     try {
       setSaving(true)
       await saveUserDetails(data)
+      router.refresh()
       // TODO: show success message
     } catch (e) {
       // TODO: show error message

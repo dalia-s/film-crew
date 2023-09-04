@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea, DatePicker, SubmitButton } from '@/components/forms'
@@ -12,6 +13,7 @@ type Props = {
 }
 
 export default function ProducerProfileForm({ userDetails }: Props) {
+  const router = useRouter()
   const [saving, setSaving] = useState(false)
   const t = useTranslations('Forms')
 
@@ -31,6 +33,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
     try {
       setSaving(true)
       await saveUserDetails(data)
+      router.refresh()
       // TODO: show success message
     } catch (e) {
       // TODO: show error message
