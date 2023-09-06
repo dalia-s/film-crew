@@ -4,8 +4,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { useLocale, useMessages, NextIntlClientProvider } from 'next-intl'
 import { ClerkProvider } from '@clerk/nextjs'
 import pick from 'lodash/pick'
-import Header from 'app/[locale]/(header)/header'
-import ltLocalisation from '../../messages/ltAuthLocale'
+import Header from 'src/app/[locale]/(header)/header'
+import ltLocalisation from '@/messages/ltAuthLocale'
 
 const roboto = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],

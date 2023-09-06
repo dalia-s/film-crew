@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs'
-import { prisma } from '@/utils/prisma'
+import prisma from '@/prisma/client'
 import { FormFields } from '@/types/index'
 
 function formatRequestData(data: FormFields) {
@@ -27,7 +27,7 @@ function formatRequestData(data: FormFields) {
     availability: {},
   }
 
-  if (data.projectName) {
+  if (data.projectId || data.projectName) {
     if (!data.projectId) {
       optionlData.projects = { create: { ...project } }
     } else {

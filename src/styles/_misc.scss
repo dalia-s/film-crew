@@ -63,7 +63,8 @@ div.landing-page-container {
 }
 
 div.delete-user-component {
-  svg {
+  svg.fa-pulse,
+  button {
     height: 1em;
     margin: 0 0.5em;
   }

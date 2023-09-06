@@ -44,7 +44,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)} className="form-body">
+      <form onSubmit={handleSubmit(onSubmit)} className="form-body" data-testid="producer-profile-form">
         <div className="row">
           <div className="column">
             <TextInput
@@ -76,9 +76,13 @@ export default function ProducerProfileForm({ userDetails }: Props) {
           name="about"
           placeholder={t('profileForm.introPlh')}
         />
+        <h4>{t('profileForm.currentProjectSectionHeader')}</h4>
         <TextInput
           register={register}
-          registerOptions={{ required: true }}
+          registerOptions={{
+            validate: (value, formValues) =>
+              !!value || (!formValues.projectDescription && !formValues.projectStartDate && !formValues.projectEndDate),
+          }}
           label={t('profileForm.currentProjectName')}
           name="projectName"
           error={!!errors.projectName}

@@ -42,13 +42,14 @@
       "contactNoErrM": "Įveskite galiojantį telefno numerį.",
       "introPlh": "Trumpai papasakokite apie save.",
       "contactNoPlh": "+XXX-XXX-XXXXX",
-      "currentProjectName": "Dabartinio projekto pavadinimas",
+      "currentProjectName": "Projekto pavadinimas",
       "currentProjectNamePlh": "Projekto pavadinimas",
       "currentProjectNameErrM": "Įveskite dabartinio projekto pavadinimą.",
       "currentProjectDescription": "Projekto aprašymas",
       "currentProjectDescriptionPlh": "Trumpai papasakokite apie savo dabartinį projektą.",
       "currentProjectStartDate": "Projekto pradžia",
-      "currentProjectEndDate": "Projekto pabaiga"
+      "currentProjectEndDate": "Projekto pabaiga",
+      "currentProjectSectionHeader": "Jūsų dabartinio projekto informacija (neprivaloma):"
     }
   },
   "Filter": {

@@ -1,8 +1,8 @@
 {
   "PageNames": {
-    "crewProfile": "Crew Profile",
+    "crewProfile": "Profile",
     "crewCalendar": "Availability Calendar",
-    "producerProfile": "Producer Profile",
+    "producerProfile": "Profile",
     "producerSearch": "Crew List"
   },
   "LandingPage": {
@@ -42,13 +42,14 @@
       "contactNoErrM": "Please enter a valid contact number.",
       "introPlh": "Tell us a little about yourself.",
       "contactNoPlh": "+XXX-XXX-XXXXX",
-      "currentProjectName": "Your current project name",
+      "currentProjectName": "Project name",
       "currentProjectNamePlh": "Project name",
       "currentProjectNameErrM": "Please enter your current project name.",
-      "currentProjectDescription": "Your project description",
+      "currentProjectDescription": "Project description",
       "currentProjectDescriptionPlh": "Tell us a little about your project.",
       "currentProjectStartDate": "Project start date",
-      "currentProjectEndDate": "Project end date"
+      "currentProjectEndDate": "Project end date",
+      "currentProjectSectionHeader": "Your current project details (optional):"
     }
   },
   "Filter": {

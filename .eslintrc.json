@@ -1,5 +1,12 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "prettier"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -8,6 +15,7 @@
     "@typescript-eslint/semi": ["error", "never"],
     "react/jsx-props-no-spreading": ["error", { "html": "ignore" }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
