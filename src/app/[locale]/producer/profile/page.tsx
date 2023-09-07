@@ -5,7 +5,7 @@ import { DeleteUserComponent } from '@/components/deleteUser'
 import { FormWithData } from './formData'
 import Loading from '../../loading'
 
-export function Page() {
+export default function Page() {
   const loc = useLocale()
   const messages = useMessages()
   const t = useTranslations('PageNames')
@@ -22,5 +22,3 @@ export function Page() {
     </>
   )
 }
-
-export default Page

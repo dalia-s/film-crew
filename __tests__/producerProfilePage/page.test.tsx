@@ -1,6 +1,6 @@
 import { render, screen } from '@/utils/testUtils'
 import messages from '@/messages/en.json'
-import { Page as ProducerProfilePage } from '../../src/app/[locale]/producer/profile/page'
+import ProducerProfilePage from '../../src/app/[locale]/producer/profile/page'
 
 jest.mock('../../src/app/[locale]/producer/profile/formData', () => ({
   FormWithData: () => <div />,
