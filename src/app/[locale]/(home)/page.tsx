@@ -16,9 +16,15 @@ export default function Page() {
           </p>
           <p>None of the features, styling, UX, tests, etc., are complete.</p>
           <p>
-            Code can be found here:{' '}
+            Code:{' '}
             <a href="https://github.com/dalia-s/film-crew" target="__blank">
-              https://github.com/dalia-s/film-crew
+              GitHub
+            </a>
+          </p>
+          <p>
+            Contacts:{' '}
+            <a href="https://www.linkedin.com/in/dalia-saltenyte-39b4954/" target="__blank">
+              LinkedIn
             </a>
           </p>
           <p>******</p>
