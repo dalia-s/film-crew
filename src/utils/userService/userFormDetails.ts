@@ -1,6 +1,6 @@
 import { auth } from '@clerk/nextjs'
 import { DateRange, FormFields, Project } from '@/types/index'
-import { prisma } from '@/utils/prisma'
+import prisma from '@/prisma/client'
 
 const defaultProject: Project = {
   projectId: undefined,
@@ -28,7 +28,7 @@ export async function getUserDetails(): Promise<FormFields> {
 
   const profession = user.profile?.profession || ''
   const experienceYears = user.profile ? String(user.profile?.experienceYears) : ''
-  const hourlyRate = user.profile ? String(user.profile?.experienceYears) : ''
+  const hourlyRate = user.profile ? String(user.profile?.hourlyRate) : ''
   let availabilityId
   let availability: DateRange = []
   if (user.availability.length) {

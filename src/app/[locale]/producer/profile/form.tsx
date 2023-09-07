@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { TextInput, TextArea, DatePicker, SubmitButton } from '@/components/forms'
@@ -12,6 +13,7 @@ type Props = {
 }
 
 export default function ProducerProfileForm({ userDetails }: Props) {
+  const router = useRouter()
   const [saving, setSaving] = useState(false)
   const t = useTranslations('Forms')
 
@@ -31,6 +33,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
     try {
       setSaving(true)
       await saveUserDetails(data)
+      router.refresh()
       // TODO: show success message
     } catch (e) {
       // TODO: show error message
@@ -41,7 +44,7 @@ export default function ProducerProfileForm({ userDetails }: Props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)} className="form-body">
+      <form onSubmit={handleSubmit(onSubmit)} className="form-body" data-testid="producer-profile-form">
         <div className="row">
           <div className="column">
             <TextInput
@@ -73,9 +76,13 @@ export default function ProducerProfileForm({ userDetails }: Props) {
           name="about"
           placeholder={t('profileForm.introPlh')}
         />
+        <h4>{t('profileForm.currentProjectSectionHeader')}</h4>
         <TextInput
           register={register}
-          registerOptions={{ required: true }}
+          registerOptions={{
+            validate: (value, formValues) =>
+              !!value || (!formValues.projectDescription && !formValues.projectStartDate && !formValues.projectEndDate),
+          }}
           label={t('profileForm.currentProjectName')}
           name="projectName"
           error={!!errors.projectName}

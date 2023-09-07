@@ -1,5 +1,7 @@
+'use server'
+
 import { Role, Prisma } from '@prisma/client'
-import { prisma } from '@/utils/prisma'
+import prisma from '@/prisma/client'
 import { CrewListItem, DBAvailability, CrewSearchParams, CrewListRawDataItem } from '@/types/index'
 import { experienceOptions } from '@/utils/consts'
 

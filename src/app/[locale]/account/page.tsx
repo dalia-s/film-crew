@@ -1,10 +1,8 @@
-import { redirect } from 'next/navigation'
-import { useLocale, useMessages, NextIntlClientProvider, useTranslations } from 'next-intl'
+import { useLocale, useMessages, useTranslations, NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash/pick'
-import { getUserRole, getUserRedirectPath } from '@/utils/userService'
 import AccountTypeForm from './accountTypeForm'
 
-function LocalisedPage() {
+export default function Page() {
   const loc = useLocale()
   const messages = useMessages()
   const t = useTranslations('AccountTypePage')
@@ -17,13 +15,4 @@ function LocalisedPage() {
       </NextIntlClientProvider>
     </>
   )
-}
-
-export default function Page() {
-  const role = getUserRole()
-  if (role) {
-    redirect(getUserRedirectPath(role))
-  }
-
-  return <LocalisedPage />
 }

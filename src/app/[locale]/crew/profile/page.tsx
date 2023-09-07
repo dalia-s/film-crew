@@ -1,8 +1,10 @@
+import { Suspense } from 'react'
 import { useLocale, useMessages, useTranslations, NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash/pick'
 import DeleteUserComponent from '@/components/deleteUser'
 import { getUserDetails } from '@/utils/userService'
 import Form from './crewProfileForm'
+import Loading from '../../loading'
 
 async function FormWithData() {
   const userDetails = await getUserDetails()
@@ -18,8 +20,10 @@ export default function Page() {
     <>
       <h2>{t('crewProfile')}</h2>
       <NextIntlClientProvider locale={loc} messages={pick(messages || {}, 'Forms', 'SelectOptions')}>
-        <FormWithData />
-        <DeleteUserComponent />
+        <Suspense fallback={<Loading />}>
+          <FormWithData />
+          <DeleteUserComponent />
+        </Suspense>
       </NextIntlClientProvider>
     </>
   )

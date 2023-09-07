@@ -6,6 +6,10 @@ button.button {
   background-color: $textDark;
   text-transform: uppercase;
   cursor: pointer;
+  &.no-style {
+    padding: 0;
+    background: none;
+  }
   &:active,
   &:disabled {
     opacity: 0.8;

@@ -1,17 +1,12 @@
+import { Suspense } from 'react'
 import { useLocale, useMessages, useTranslations, NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash/pick'
 import Filter from './filter'
 import CrewTable from './table'
-import { getCrewList } from '@/utils/crewListService'
 import { CrewSearchParams } from '@/types/index'
 
 type Props = {
   searchParams: CrewSearchParams
-}
-
-async function TableWithData({ searchParams }: Props) {
-  const crewData = await getCrewList(searchParams)
-  return <CrewTable data={crewData} />
 }
 
 export default function Page({ searchParams }: Props) {
@@ -22,9 +17,11 @@ export default function Page({ searchParams }: Props) {
   return (
     <>
       <h2>{t('producerSearch')}</h2>
-      <Filter />
+      <Suspense fallback={null}>
+        <Filter />
+      </Suspense>
       <NextIntlClientProvider locale={loc} messages={pick(messages || {}, 'Table', 'SelectOptions')}>
-        <TableWithData searchParams={searchParams} />
+        <CrewTable searchParams={searchParams} />
       </NextIntlClientProvider>
     </>
   )

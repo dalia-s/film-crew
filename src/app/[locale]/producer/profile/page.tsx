@@ -1,13 +1,9 @@
+import { Suspense } from 'react'
 import { useLocale, useMessages, useTranslations, NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash/pick'
-import DeleteUserComponent from '@/components/deleteUser'
-import { getUserDetails } from '@/utils/userService'
-import Form from './producerProfileForm'
-
-async function FormWithData() {
-  const userDetails = await getUserDetails()
-  return <Form userDetails={userDetails} />
-}
+import { DeleteUserComponent } from '@/components/deleteUser'
+import { FormWithData } from './formData'
+import Loading from '../../loading'
 
 export default function Page() {
   const loc = useLocale()
@@ -18,8 +14,10 @@ export default function Page() {
     <>
       <h2>{t('producerProfile')}</h2>
       <NextIntlClientProvider locale={loc} messages={pick(messages || {}, 'Forms')}>
-        <FormWithData />
-        <DeleteUserComponent />
+        <Suspense fallback={<Loading />}>
+          <FormWithData />
+          <DeleteUserComponent />
+        </Suspense>
       </NextIntlClientProvider>
     </>
   )

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { auth, clerkClient } from '@clerk/nextjs'
 import { roleToPrismaEnumMap } from '@/utils/consts'
 import { UserRole } from '@/types/index'
-import { prisma } from '@/utils/prisma'
+import prisma from '@/prisma/client'
 
 export async function POST(request: Request) {
   const { userId, sessionClaims } = auth()

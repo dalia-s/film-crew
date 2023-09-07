@@ -27,7 +27,8 @@ export default function AccountTypeForm() {
     try {
       setSaving(true)
       await createUser(data)
-      router.push(getUserRedirectPath(data.role))
+      router.refresh()
+      router.replace(getUserRedirectPath(data.role))
     } catch (e) {
       // TODO: show error message
     } finally {

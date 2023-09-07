@@ -2,6 +2,10 @@ div.table-container {
   @include container;
   margin-top: 2em;
   min-width: 40em;
+
+  &.loading {
+    opacity: 0.5;
+  }
 }
 
 table {
@@ -37,7 +41,7 @@ table {
   }
 
   tr:hover td {
-    background-color: $backgroundColor;
+    background-color: darken($backgroundColor, 5%);
   }
 
   button.row-expand {

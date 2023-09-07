@@ -32,10 +32,11 @@ export default function TextInput({
         id={name}
         aria-invalid={error}
         className={className}
+        data-testid={`${name}-input`}
         {...register(name, registerOptions)}
         {...rest}
       />
-      <ErrorMessage show={error} message={errorMessage} />
+      <ErrorMessage show={error} message={errorMessage} testId={`${name}-error`} />
     </div>
   )
 }

@@ -47,7 +47,7 @@ export default function DatePickerInput({
           />
         )}
       />
-      <ErrorMessage show={error} message={errorMessage} />
+      <ErrorMessage show={error} message={errorMessage} testId={`${name}-error`} />
     </div>
   )
 }
